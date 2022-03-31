@@ -1,0 +1,20 @@
+{
+    "name": "joanrodas/plubo",
+    "type": "template",
+    "description": "A Simple and fast WP Plugin Boilerplate.",
+    "keywords": ["plugin", "wordpress", "boilerplate", "wp"],
+    "homepage": "https://url-of.project.repository",
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Joan Rodas Cusidó",
+            "email": "joan@sirvelia.com",
+            "homepage": "https://sirvelia.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "jenssegers/blade": "^1.4",
+        "htmlburger/carbon-fields": "^3.3"
+    }
+}
