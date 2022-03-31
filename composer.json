@@ -3,7 +3,7 @@
     "type": "template",
     "description": "A Simple and fast WP Plugin Boilerplate.",
     "keywords": ["plugin", "wordpress", "boilerplate", "wp"],
-    "homepage": "https://url-of.project.repository",
+    "homepage": "https://github.com/joanrodas/plubo",
     "license": "GPL-3.0+",
     "authors": [
         {
