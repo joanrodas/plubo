@@ -1,6 +1,6 @@
 <?php
 
-class Plugin_Placeholder_Api_Endpoints {
+class PluginPlaceholder_Api_Endpoints {
 
 	protected $plugin_name;
 	protected $plugin_version;

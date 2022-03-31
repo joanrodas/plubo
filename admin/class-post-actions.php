@@ -1,6 +1,6 @@
 <?php
 
-class Plugin_Placeholder_Post_Actions {
+class PluginPlaceholder_Post_Actions {
 
 	protected $plugin_name;
 	protected $plugin_version;

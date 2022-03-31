@@ -6,15 +6,27 @@
     "homepage": "https://github.com/joanrodas/plubo",
     "license": "GPL-3.0+",
     "authors": [
-        {
-            "name": "Joan Rodas Cusidó",
-            "email": "joan@sirvelia.com",
-            "homepage": "https://sirvelia.com",
-            "role": "Developer"
-        }
+      {
+        "name": "Joan Rodas Cusidó",
+        "email": "joan@sirvelia.com",
+        "homepage": "https://sirvelia.com",
+        "role": "Developer"
+      }
     ],
     "require": {
-        "jenssegers/blade": "^1.4",
-        "htmlburger/carbon-fields": "^3.3"
+      "php": ">=7.4",
+      "jenssegers/blade": "^1.4",
+      "htmlburger/carbon-fields": "^3.3"
+    },
+    "scripts": {
+      "post-create-project-cmd": [
+        "sed -i -e \"s/plugin-placeholder/${PWD##*/}/g\" plugin-placeholder.php"
+      ],
+      "test": [
+        "sed -i -e \"s/plugin-placeholder/${PWD##*/}/g\" plugin-placeholder.php",
+        "sed -i -e \"s/PLUGIN_PLACEHOLDER/$(tr '[a-z]' '[A-Z]' <<< ${PWD##*/})/g\" plugin-placeholder.php",
+        "sed -i -e \"s/PluginPlaceholder/$(awk 'BEGIN{FS=\"\";RS=\"-\";ORS=\"\"} {$0=toupper(substr($0,1,1)) substr($0,2)} 1' <<< ${PWD##*/})/g\" plugin-placeholder.php",
+        "php -r \"rename('plugin-placeholder.php', '${PWD##*/}.php');\""
+      ]
     }
 }

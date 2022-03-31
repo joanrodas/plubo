@@ -1,6 +1,6 @@
 <?php
 
-class Plugin_Placeholder_Routes {
+class PluginPlaceholder_Routes {
 
 	protected $plugin_name;
 	protected $plugin_version;

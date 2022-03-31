@@ -1,6 +1,6 @@
 <?php
 
-class Plugin_Placeholder_Public {
+class PluginPlaceholder_Public {
 
 	protected $plugin_name;
 	protected $plugin_version;
@@ -19,12 +19,12 @@ class Plugin_Placeholder_Public {
     require_once PLUGIN_PLACEHOLDER_PATH . 'public/class-shortcodes.php';
     require_once PLUGIN_PLACEHOLDER_PATH . 'public/class-taxonomies.php';
 
-    $api_endpoints = new Plugin_Placeholder_Api_Endpoints( $this->get_plugin_name(), $this->get_plugin_version() );
-    $custom_fields = new Plugin_Placeholder_Custom_Fields( $this->get_plugin_name(), $this->get_plugin_version() );
-    $custom_post_types = new Plugin_Placeholder_Custom_Post_Types( $this->get_plugin_name(), $this->get_plugin_version() );
-    $routes = new Plugin_Placeholder_Routes( $this->get_plugin_name(), $this->get_plugin_version() );
-    $shortcodes = new Plugin_Placeholder_Shortcodes( $this->get_plugin_name(), $this->get_plugin_version() );
-    $taxonomies = new Plugin_Placeholder_Taxonomies( $this->get_plugin_name(), $this->get_plugin_version() );
+    $api_endpoints = new PluginPlaceholder_Api_Endpoints( $this->get_plugin_name(), $this->get_plugin_version() );
+    $custom_fields = new PluginPlaceholder_Custom_Fields( $this->get_plugin_name(), $this->get_plugin_version() );
+    $custom_post_types = new PluginPlaceholder_Custom_Post_Types( $this->get_plugin_name(), $this->get_plugin_version() );
+    $routes = new PluginPlaceholder_Routes( $this->get_plugin_name(), $this->get_plugin_version() );
+    $shortcodes = new PluginPlaceholder_Shortcodes( $this->get_plugin_name(), $this->get_plugin_version() );
+    $taxonomies = new PluginPlaceholder_Taxonomies( $this->get_plugin_name(), $this->get_plugin_version() );
 
 		if($activation) {
 			$custom_post_types->register_post_types();

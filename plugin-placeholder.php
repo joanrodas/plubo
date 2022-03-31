@@ -27,14 +27,14 @@ define( 'PLUGIN_PLACEHOLDER_URL', plugin_dir_url( __FILE__ ) );
 
 register_activation_hook( __FILE__, function() {
   require_once PLUGIN_PLACEHOLDER_PATH . 'includes/class-activator.php';
-  Plugin_Placeholder_Activator::activate();
+  PluginPlaceholderActivator::activate();
 } );
 
 register_deactivation_hook( __FILE__, function() {
   require_once PLUGIN_PLACEHOLDER_PATH . 'includes/class-deactivator.php';
-  Plugin_Placeholder_Deactivator::deactivate();
+  PluginPlaceholderDeactivator::deactivate();
 } );
 
 //LOAD ALL PLUGIN FILES
 require plugin_dir_path( __FILE__ ) . 'includes/class-loader.php';
-$loader = new Plugin_Placeholder();
+$loader = new PluginPlaceholder();

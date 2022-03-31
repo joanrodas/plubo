@@ -1,6 +1,6 @@
 <?php
 
-class Plugin_Placeholder_Admin {
+class PluginPlaceholder_Admin {
 
 	protected $plugin_name;
 	protected $plugin_version;
@@ -16,9 +16,9 @@ class Plugin_Placeholder_Admin {
     require_once PLUGIN_PLACEHOLDER_PATH . 'admin/class-ajax-actions.php';
     require_once PLUGIN_PLACEHOLDER_PATH . 'admin/class-post-actions.php';
 
-    $admin_menus = new Plugin_Placeholder_Admin_Menus( $this->get_plugin_name(), $this->get_plugin_version() );
-    $ajax_actions = new Plugin_Placeholder_Ajax_Actions( $this->get_plugin_name(), $this->get_plugin_version() );
-    $post_actions = new Plugin_Placeholder_Post_actions( $this->get_plugin_name(), $this->get_plugin_version() );
+    $admin_menus = new PluginPlaceholder_Admin_Menus( $this->get_plugin_name(), $this->get_plugin_version() );
+    $ajax_actions = new PluginPlaceholder_Ajax_Actions( $this->get_plugin_name(), $this->get_plugin_version() );
+    $post_actions = new PluginPlaceholder_Post_actions( $this->get_plugin_name(), $this->get_plugin_version() );
 	}
 
 	private function get_plugin_name() {

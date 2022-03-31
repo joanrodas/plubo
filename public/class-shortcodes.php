@@ -1,6 +1,6 @@
 <?php
 
-class Plugin_Placeholder_Shortcodes {
+class PluginPlaceholder_Shortcodes {
 
 	protected $plugin_name;
 	protected $plugin_version;

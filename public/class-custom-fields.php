@@ -2,7 +2,7 @@
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-class Plugin_Placeholder_Custom_Fields {
+class PluginPlaceholder_Custom_Fields {
 
 	protected $plugin_name;
 	protected $plugin_version;

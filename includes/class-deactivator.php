@@ -1,6 +1,6 @@
 <?php
 
-class Plugin_Placeholder_Deactivator {
+class PluginPlaceholder_Deactivator {
 
 	public static function deactivate() {
 
