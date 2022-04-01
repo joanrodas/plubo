@@ -17,9 +17,9 @@ class PluginPlaceholder {
 		require_once PLUGIN_PLACEHOLDER_PATH . 'admin/class-admin.php';
 		require_once PLUGIN_PLACEHOLDER_PATH . 'public/class-public.php';
 
+		$plugin_i18n = new PluginPlaceholder_i18n();
     $plugin_admin = new PluginPlaceholder_Admin( $this->get_plugin_name(), $this->get_plugin_version() );
     $plugin_public = new PluginPlaceholder_Public( $this->get_plugin_name(), $this->get_plugin_version() );
-    $plugin_i18n = new PluginPlaceholder_i18n();
 	}
 
 	public function get_plugin_name() {
@@ -28,14 +28,6 @@ class PluginPlaceholder {
 
 	public function get_plugin_version() {
 		return $this->plugin_version;
-	}
-
-	public function load_on_activation() {
-		$plugin_admin = new PluginPlaceholder_Admin( $this->get_plugin_name(), $this->get_plugin_version() );
-		$plugin_admin->load_on_activation();
-
-    $plugin_public = new PluginPlaceholder_Public( $this->get_plugin_name(), $this->get_plugin_version() );
-		$plugin_public->load_on_activation();
 	}
 
 }
