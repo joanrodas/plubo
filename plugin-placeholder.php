@@ -26,15 +26,15 @@ define( 'PLUGIN_PLACEHOLDER_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PLUGIN_PLACEHOLDER_URL', plugin_dir_url( __FILE__ ) );
 
 register_activation_hook( __FILE__, function() {
-  require_once PLUGIN_PLACEHOLDER_PATH . 'includes/class-activator.php';
+  require_once PLUGIN_PLACEHOLDER_PATH . 'includes/activator.php';
   PluginPlaceholderActivator::activate();
 } );
 
 register_deactivation_hook( __FILE__, function() {
-  require_once PLUGIN_PLACEHOLDER_PATH . 'includes/class-deactivator.php';
+  require_once PLUGIN_PLACEHOLDER_PATH . 'includes/deactivator.php';
   PluginPlaceholderDeactivator::deactivate();
 } );
 
 //LOAD ALL PLUGIN FILES
-require plugin_dir_path( __FILE__ ) . 'includes/class-loader.php';
+require plugin_dir_path( __FILE__ ) . 'includes/loader.php';
 $loader = new PluginPlaceholder();

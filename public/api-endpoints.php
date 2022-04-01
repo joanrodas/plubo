@@ -1,19 +1,21 @@
 <?php
 
-class PluginPlaceholder_Taxonomies {
+class PluginPlaceholderApiEndpoints {
 
 	protected $plugin_name;
 	protected $plugin_version;
 
+  //FORMAT: array(type, name, function)
+  private $endpoints = array();
+
   public function __construct( $plugin_name, $plugin_version ) {
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
-
-    add_action( 'init', array($this, 'register_taxonomies') );
+		$this->add_endpoints();
 	}
 
-	public function register_taxonomies() {
-    // register_taxonomy( 'tax_slug', 'post_type', $args );
+	public function add_endpoints() {
+
 	}
 
 }

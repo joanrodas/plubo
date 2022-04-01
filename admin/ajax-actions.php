@@ -1,6 +1,6 @@
 <?php
 
-class PluginPlaceholder_Ajax_Actions {
+class PluginPlaceholderAjaxActions {
 
 	protected $plugin_name;
 	protected $plugin_version;

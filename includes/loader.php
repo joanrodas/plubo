@@ -13,13 +13,13 @@ class PluginPlaceholder {
 
 	private function load_dependencies() {
 		require_once PLUGIN_PLACEHOLDER_PATH . 'vendor/autoload.php';
-		require_once PLUGIN_PLACEHOLDER_PATH . 'includes/class-i18n.php';
-		require_once PLUGIN_PLACEHOLDER_PATH . 'admin/class-admin.php';
-		require_once PLUGIN_PLACEHOLDER_PATH . 'public/class-public.php';
+		require_once PLUGIN_PLACEHOLDER_PATH . 'includes/i18n.php';
+		require_once PLUGIN_PLACEHOLDER_PATH . 'admin/admin.php';
+		require_once PLUGIN_PLACEHOLDER_PATH . 'public/public.php';
 
-		$plugin_i18n = new PluginPlaceholder_i18n();
-    $plugin_admin = new PluginPlaceholder_Admin( $this->get_plugin_name(), $this->get_plugin_version() );
-    $plugin_public = new PluginPlaceholder_Public( $this->get_plugin_name(), $this->get_plugin_version() );
+		$plugin_i18n = new PluginPlaceholderi18n();
+    $plugin_admin = new PluginPlaceholderAdmin( $this->get_plugin_name(), $this->get_plugin_version() );
+    $plugin_public = new PluginPlaceholderPublic( $this->get_plugin_name(), $this->get_plugin_version() );
 	}
 
 	public function get_plugin_name() {

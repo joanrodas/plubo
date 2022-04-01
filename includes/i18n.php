@@ -1,6 +1,6 @@
 <?php
 
-class PluginPlaceholder_i18n {
+class PluginPlaceholderi18n {
 
   public function __construct() {
     add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );

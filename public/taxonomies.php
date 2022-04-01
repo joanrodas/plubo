@@ -1,6 +1,6 @@
 <?php
 
-class PluginPlaceholder_Admin_Menus {
+class PluginPlaceholderTaxonomies {
 
 	protected $plugin_name;
 	protected $plugin_version;
@@ -8,11 +8,12 @@ class PluginPlaceholder_Admin_Menus {
   public function __construct( $plugin_name, $plugin_version ) {
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
-		$this->add_menus();
+
+    add_action( 'init', array($this, 'register_taxonomies') );
 	}
 
-	private function add_menus() {
-
+	public function register_taxonomies() {
+    // register_taxonomy( 'tax_slug', 'post_type', $args );
 	}
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-class PluginPlaceholder_Custom_Post_Types {
+class PluginPlaceholderCustomPostTypes {
 
 	protected $plugin_name;
 	protected $plugin_version;
