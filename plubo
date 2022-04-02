@@ -71,6 +71,7 @@ import Alpine from 'alpinejs';
 window.Alpine = Alpine;
 Alpine.start();
       <?php $alpine_contents = ob_get_clean();
+      echo "Installing Alpine.js with npm...\r\n";
       shell_exec('npm install alpinejs');
       file_put_contents('./resources/assets/scripts/autoload/_alpine.js', $alpine_contents);
       echo "Alpine.js added!\r\n\r\n";
