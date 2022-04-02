@@ -57,6 +57,7 @@
     "imagemin-webpack-plugin": "^2.4.2",
     "import-glob": "~1.5",
     "node-sass": "^5.0.0",
+    "postcss": "^8.4.12",
     "postcss-loader": "^4.0.4",
     "postcss-safe-parser": "^5.0.2",
     "resolve-url-loader": "^3.1.2",
