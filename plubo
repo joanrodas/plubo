@@ -1,6 +1,113 @@
-#!/bin/bash
-find ./ -type f -name '*.php' | xargs sed -i "s/plugin-placeholder/${PWD##*/}/g"
-find ./ -type f -name '*.php' | xargs sed -i "s/PLUGIN_PLACEHOLDER/$(tr '[a-z]' '[A-Z]' <<< ${PWD##*/})/g"
-find ./ -type f -name '*.php' | xargs sed -i "s/PluginPlaceholder/$(awk 'BEGIN{FS="";RS="-";ORS=""} {$0=toupper(substr($0,1,1)) substr($0,2)} 1' <<< ${PWD##*/})/g"
-php -r "rename('plugin-placeholder.php', '${PWD##*/}.php');"
-composer dump-autoload
+#!/usr/bin/env php
+<?php
+if(isset($argv[1])) {
+  $action = $argv[1];
+
+  switch ($action) {
+    case 'init':
+      plubo_init();
+      break;
+
+    case 'add':
+      if($argc > 2) plubo_add( $argv[2], ($argv[3] ?? '') );
+      else {
+        echo "Sometimes the only choices you have are bad ones, but you still have to choose.\r\n\r\n";
+        echo "1. Tailwind CSS\r\n";
+        echo "2. Alpine.js\r\n";
+        echo "3. React\r\n";
+        echo "4. Yoyo\r\n\r\n";
+        $option = trim( readline("Select option[1-4]: ") );
+        switch ($option) {
+          case '1':
+            plubo_add('tailwind');
+            break;
+          case '2':
+            plubo_add('alpine');
+            break;
+          case '3':
+            plubo_add('react');
+            break;
+          case '4':
+            plubo_add('yoyo');
+            break;
+          default:
+            die("To the rational mind, nothing is inexplicable; only unexplained.\r\n");
+            break;
+        }
+      }
+      break;
+
+    case 'remove':
+      if($argc > 2) plubo_remove( $argv[2], ($argv[3] ?? '') );
+      die();
+      break;
+
+    default:
+      die("To the rational mind, nothing is inexplicable; only unexplained.\r\n");
+      break;
+  }
+  die();
+}
+else {
+  die("Sometimes the only choices you have are bad ones, but you still have to choose.\r\n");
+}
+
+
+
+/* FUNCTIONS */
+function plubo_add($option, $path='') {
+  $option = strtolower($option);
+  switch ($option) {
+    case 'tailwind':
+    case 'tailwindcss':
+      echo "Tailwind CSS ready to speed up you development ;)\r\n\r\n";
+      break;
+
+    case 'alpine':
+    case 'alpine.js':
+    case 'alpinejs':
+      ob_start(); ?>
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+Alpine.start();
+      <?php $alpine_contents = ob_get_clean();
+      shell_exec('npm install alpinejs');
+      file_put_contents('./resources/assets/scripts/autoload/_alpine.js', $alpine_contents);
+      echo "Alpine.js added!\r\n\r\n";
+      break;
+
+    case 'react':
+    case 'reactjs':
+      if($path) echo "React app $path created ;)\r\n\r\n";
+      else echo "React app created ;)\r\n\r\n";
+      break;
+
+    case 'yoyo':
+      echo "Yoyo added ;)\r\n\r\n";
+      break;
+
+    default:
+      die("To the rational mind, nothing is inexplicable; only unexplained.\r\n");
+      break;
+  }
+}
+
+function plubo_init() {
+  $tailwind = trim( readline("Do you need Tailwind CSS? Y/n: ") );
+  $tailwind = !$tailwind || $tailwind === 'y' || $tailwind === 'yes' || $tailwind === 'yep';
+  if($tailwind) plubo_add('tailwind');
+  else echo "Not configuring Tailwind CSS ಥ_ಥ\r\n\r\n";
+
+  $alpine = trim( readline("Do you need Alpine.js? Y/n: ") );
+  $alpine = !$alpine || $alpine === 'y' || $alpine === 'yes' || $alpine === 'yep';
+  if($alpine) plubo_add('alpine');
+  else echo "Not installing Alpine.js ಥ_ಥ\r\n\r\n";
+
+  $react = trim( readline("Do you need a React app? y/N: ") );
+  $react = $react === 'y' || $react === 'yes' || $react === 'yep';
+  if($react) {
+    $react_name = trim( readline("OK! Input your app name or leave blank for default: \r\n") );
+    plubo_add('react', $react_name);
+  }
+  else echo "React is not needed... ಥ_ಥ\r\n\r\n";
+}

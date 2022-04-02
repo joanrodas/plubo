@@ -20,7 +20,8 @@
     },
     "scripts": {
       "post-create-project-cmd": [
-        "chmod +x plubo && ./plubo"
+        "chmod +x plubo.sh && ./plubo.sh",
+        "chmod +x plubo && php -f plubo init"
       ]
     }
 }
