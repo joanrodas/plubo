@@ -1,4 +1,5 @@
 <?php
+use Jenssegers\Blade\Blade;
 
 class PluginPlaceholder {
 
@@ -17,9 +18,15 @@ class PluginPlaceholder {
 		require_once PLUGIN_PLACEHOLDER_PATH . 'admin/admin.php';
 		require_once PLUGIN_PLACEHOLDER_PATH . 'public/public.php';
 
+		$blade = new Blade(PLUGIN_PLACEHOLDER_PATH . 'resources/views', PLUGIN_PLACEHOLDER_PATH . 'resources/cache');
+
 		$plugin_i18n = new PluginPlaceholderi18n();
-    $plugin_admin = new PluginPlaceholderAdmin( $this->get_plugin_name(), $this->get_plugin_version() );
-    $plugin_public = new PluginPlaceholderPublic( $this->get_plugin_name(), $this->get_plugin_version() );
+    $plugin_admin = new PluginPlaceholderAdmin( $this->get_plugin_name(), $this->get_plugin_version(), $blade );
+    $plugin_public = new PluginPlaceholderPublic( $this->get_plugin_name(), $this->get_plugin_version(), $blade );
+
+		add_filter( 'do_shortcode_tag', function($output, $tag, $attr) {
+			return "<span style='display: none;' class='shortcode-$tag'></span>" . $output;
+		}, 22, 3);
 	}
 
 	public function get_plugin_name() {
