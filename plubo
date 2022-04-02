@@ -53,7 +53,6 @@ else {
 }
 
 
-
 /* FUNCTIONS */
 function plubo_add($option, $path='') {
   $option = strtolower($option);
@@ -64,7 +63,7 @@ function plubo_add($option, $path='') {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-      <?php $tailwind_contents = ob_get_clean();
+<?php $tailwind_contents = ob_get_clean();
       echo "Installing Tailwind CSS with npm...\r\n";
       shell_exec('npm -D tailwindcss');
       file_put_contents('./resources/assets/styles/autoload/_tailwind.scss', $tailwind_contents);
@@ -83,7 +82,7 @@ function plubo_add($option, $path='') {
 import Alpine from 'alpinejs';
 window.Alpine = Alpine;
 Alpine.start();
-      <?php $alpine_contents = ob_get_clean();
+<?php $alpine_contents = ob_get_clean();
       echo "Installing Alpine.js with npm...\r\n";
       shell_exec('npm install alpinejs');
       file_put_contents('./resources/assets/scripts/autoload/_alpine.js', $alpine_contents);
