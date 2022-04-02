@@ -65,7 +65,7 @@ function plubo_add($option, $path='') {
 @tailwind utilities;
 <?php $tailwind_contents = ob_get_clean();
       echo "Installing Tailwind CSS with npm...\r\n";
-      shell_exec('npm -D tailwindcss');
+      shell_exec('npm install -D tailwindcss');
       file_put_contents('./resources/assets/styles/autoload/_tailwind.scss', $tailwind_contents);
 
       $config = file_get_contents('./resources/assets/build/postcss.config.js');
