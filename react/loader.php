@@ -8,7 +8,6 @@ class PluginPlaceholderReactLoader {
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
     require_once 'apps.php';
-
     $this->load_react();
 	}
 
@@ -18,7 +17,7 @@ class PluginPlaceholderReactLoader {
       global $apps;
       foreach ($apps as $script_handle) {
         $script_path       = 'apps/'.$script_handle.'/build/index.js';
-      	$script_asset_path = PLUGIN_PLACEHOLDER_PATH .$script_handle.'/build/index.asset.php';
+      	$script_asset_path = PLUGIN_PLACEHOLDER_PATH . 'react/apps/' . $script_handle.'/build/index.asset.php';
       	$script_asset      = file_exists( $script_asset_path )
       		? require $script_asset_path
       		: array(
@@ -29,7 +28,7 @@ class PluginPlaceholderReactLoader {
 
         wp_register_script( $script_handle, $script_url, $script_asset['dependencies'], $script_asset['version'] );
       }
-    }, 110);
+    });
 
     add_action( 'init', function() {
       global $apps;
