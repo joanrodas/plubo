@@ -27,6 +27,16 @@ class PluginPlaceholder {
 		add_filter( 'do_shortcode_tag', function($output, $tag, $attr) {
 			return "<span style='display: none;' class='shortcode-$tag'></span>" . $output;
 		}, 22, 3);
+
+		add_action('wp_enqueue_scripts', function () {
+	    wp_enqueue_style('plugin-placeholder/main.css', PLUGIN_PLACEHOLDER_URL . '/dist/styles/main.css', false, null);
+	    wp_enqueue_script('plugin-placeholder/main.js', PLUGIN_PLACEHOLDER_URL . '/dist/scripts/main.js', ['jquery'], null, true);
+
+	    wp_localize_script( 'plugin-placeholder/main.js', 'plugin_placeholder_ajax', array(
+	      'ajaxurl'   => admin_url( 'admin-ajax.php' ),
+	      'nonce'     => wp_create_nonce( 'ajax-nonce' ),
+	    ) );
+		}, 100);
 	}
 
 	public function get_plugin_name() {
