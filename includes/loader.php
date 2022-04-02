@@ -25,7 +25,7 @@ class PluginPlaceholder {
     $plugin_public = new PluginPlaceholderPublic( $this->get_plugin_name(), $this->get_plugin_version(), $blade );
 
 		add_filter( 'do_shortcode_tag', function($output, $tag, $attr) {
-			return "<span style='display: none;' class='shortcode-$tag'></span>" . $output;
+			return "<span style='display: none;' class='plubo-shortcode' data-tag='$tag'></span>" . $output;
 		}, 22, 3);
 
 		add_action('wp_enqueue_scripts', function () {

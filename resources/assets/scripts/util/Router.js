@@ -14,8 +14,9 @@ class Router {
    * Create a new Router
    * @param {Object} routes
    */
-  constructor(routes) {
+  constructor(routes, shortcodes) {
     this.routes = routes;
+    this.shortcodes = shortcodes;
   }
 
   /**
@@ -32,10 +33,25 @@ class Router {
         fn: event,
       },
     }));
-    
+
     const fire = route !== '' && this.routes[route] && typeof this.routes[route][event] === 'function';
     if (fire) {
       this.routes[route][event](arg);
+    }
+  }
+
+  fireShortcode(shortcode, event = 'init', arg) {
+    document.dispatchEvent(new CustomEvent('routed', {
+      bubbles: true,
+      detail: {
+        shortcode,
+        fn: event,
+      },
+    }));
+
+    const fire = shortcode !== '' && this.shortcodes[shortcode] && typeof this.shortcodes[shortcode][event] === 'function';
+    if (fire) {
+      this.shortcodes[shortcode][event](arg);
     }
   }
 
@@ -53,6 +69,34 @@ class Router {
     this.fire('common');
 
     // Fire page-specific init JS, and then finalize JS
+    document.body.className
+      .toLowerCase()
+      .replace(/-/g, '_')
+      .split(/\s+/)
+      .map(camelCase)
+      .forEach((className) => {
+        this.fire(className);
+        this.fire(className, 'finalize');
+      });
+
+    var shortcodesPresent = document.getElementsByClassName('plubo-shortcode');
+    if (shortcodesPresent.length > 0) {
+      console.log('SHORTCODE PRESENT');
+      for (var i = 0; i < shortcodesPresent.length; i++) {
+        console.log(shortcodesPresent[i].dataset.tag);
+        shortcodesPresent[i].dataset.tag
+        .toLowerCase()
+        .replace(/-/g, '_')
+        .split(/\s+/)
+        .map(camelCase)
+        .forEach((tag) => {
+          this.fireShortcode(tag);
+          this.fireShortcode(tag, 'finalize');
+        });
+      }
+    }
+
+    // Fire shortcode-specific init JS, and then finalize JS
     document.body.className
       .toLowerCase()
       .replace(/-/g, '_')
