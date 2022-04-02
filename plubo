@@ -25,7 +25,8 @@ if(isset($argv[1])) {
             plubo_add('alpine');
             break;
           case '3':
-            plubo_add('react');
+            $react_name = trim( readline("OK! Input your app name or leave blank for default: \r\n") );
+            plubo_add('react', $react_name);
             break;
           case '4':
             plubo_add('yoyo');
@@ -91,8 +92,108 @@ Alpine.start();
 
     case 'react':
     case 'reactjs':
-      if($path) echo "React app $path created ;)\r\n\r\n";
-      else echo "React app created ;)\r\n\r\n";
+      echo "Adding React app...\r\n";
+      if(!$path) $path = uniqid('react-', false);
+      mkdir("./react/apps/$path", 0777, true);
+      ob_start();?>
+const path = require( 'path' );
+
+const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
+
+const rootDir = path.resolve( __dirname );
+
+const paths = {
+	srcDir: path.resolve( rootDir, 'src' ),
+	buildDIr: path.resolve( rootDir, 'build' ),
+};
+
+module.exports = {
+	...defaultConfig,
+	resolve: {
+		...defaultConfig.resolve,
+		// alias directories to paths you can use in import() statements
+		alias: {
+			components: path.join(paths.srcDir, "components"),
+			store: path.join(paths.srcDir, "store"),
+		},
+	},
+};
+<?php $webpack_contents = ob_get_clean();
+      file_put_contents("./react/apps/$path/webpack.config.js", $webpack_contents);
+
+      ob_start();?>
+{
+  "name": "<?= $path ?>",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "wp-scripts build",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "lint:md": "wp-scripts lint-md",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "packages-update": "wp-scripts packages-update",
+    "start": "wp-scripts start",
+    "test:e2e": "wp-scripts test-e2e",
+    "test:unit": "wp-scripts test-unit-js",
+    "wp-env": "wp-env"
+  },
+  "devDependencies": {
+    "@wordpress/data-controls": "^2.2.7",
+    "@wordpress/env": "^4.1.3",
+    "@wordpress/eslint-plugin": "^9.3.0",
+    "@wordpress/keycodes": "^3.2.4",
+    "@wordpress/scripts": "^19.2.2",
+    "autoprefixer": "^10.4.0",
+    "css-loader": "^6.5.1",
+    "eslint": "^8.3.0",
+    "mini-css-extract-plugin": "^2.4.5",
+    "node-sass": "^6.0.1",
+    "postcss-loader": "^6.2.0",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.64.3",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "@wordpress/api-fetch": "^5.2.6",
+    "@wordpress/components": "^19.0.5",
+    "@wordpress/dom-ready": "^3.2.3",
+    "@wordpress/element": "^4.0.4",
+    "@wordpress/i18n": "^4.2.4"
+  }
+}
+      <?php $package_contents = ob_get_clean();
+      file_put_contents("./react/apps/$path/package.json", $package_contents);
+
+            ob_start();?>
+import domReady from '@wordpress/dom-ready';
+import { render } from '@wordpress/element';
+
+import App from './App';
+import './styles.scss';
+
+domReady( function() {
+	render( <App />, document.getElementById( 'react-<?= $path ?>' ) );
+} );
+      <?php $index_contents = ob_get_clean();
+      file_put_contents("./react/apps/$path/src/index.js", $index_contents);
+      ob_start();?>
+function App() {
+  return ('IT WORKS!');
+}
+
+export default App;
+<?php $app_content = ob_get_clean();
+      file_put_contents("./react/apps/$path/src/index.js", $app_content);
+      file_put_contents("./react/apps/$path/src/styles.scss", '');
+
+      $config = file_get_contents('./react/apps.php');
+      $config .= '$apps[]=' . "'$path';\r\n";
+      file_put_contents('./react/apps.php', $config);
+      echo "React app $path created (•̀ᴗ•́)و ̑̑\r\n\r\n";
       break;
 
     case 'yoyo':
@@ -114,7 +215,7 @@ function plubo_init() {
   $alpine = trim( readline("Do you need Alpine.js? Y/n: ") );
   $alpine = !$alpine || $alpine === 'y' || $alpine === 'yes' || $alpine === 'yep';
   if($alpine) plubo_add('alpine');
-  else echo "Not installing Alpine.js ಥ_ಥ\r\n\r\n";
+  else echo "Not installing Alpine.js ¯\_(⊙︿⊙)_/¯\r\n\r\n";
 
   $react = trim( readline("Do you need a React app? y/N: ") );
   $react = $react === 'y' || $react === 'yes' || $react === 'yep';
