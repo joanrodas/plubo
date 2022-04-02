@@ -17,12 +17,14 @@ class PluginPlaceholder {
 		require_once PLUGIN_PLACEHOLDER_PATH . 'includes/i18n.php';
 		require_once PLUGIN_PLACEHOLDER_PATH . 'admin/admin.php';
 		require_once PLUGIN_PLACEHOLDER_PATH . 'public/public.php';
+		require_once PLUGIN_PLACEHOLDER_PATH . 'react/loader.php';
 
 		$blade = new Blade(PLUGIN_PLACEHOLDER_PATH . 'resources/views', PLUGIN_PLACEHOLDER_PATH . 'resources/cache');
 
 		$plugin_i18n = new PluginPlaceholderi18n();
     $plugin_admin = new PluginPlaceholderAdmin( $this->get_plugin_name(), $this->get_plugin_version(), $blade );
     $plugin_public = new PluginPlaceholderPublic( $this->get_plugin_name(), $this->get_plugin_version(), $blade );
+		$react = new PluginPlaceholderReactLoader( $this->get_plugin_name(), $this->get_plugin_version() );
 
 		add_filter( 'do_shortcode_tag', function($output, $tag, $attr) {
 			return "<span style='display: none;' class='plubo-shortcode' data-tag='$tag'></span>" . $output;
