@@ -5,8 +5,8 @@
       "./styles/main.scss"
     ]
   },
-  "publicPath": "/wp-content/themes/redteatros-theme",
-  "devUrl": "https://red-teatros.lndo.site",
+  "publicPath": "/wp-content/plugins/plugin-placeholder",
+  "devUrl": "https://localhost",
   "proxyUrl": "http://localhost:3000",
   "cacheBusting": "[name]_[hash:8]",
   "watch": [

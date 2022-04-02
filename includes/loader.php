@@ -29,8 +29,8 @@ class PluginPlaceholder {
 		}, 22, 3);
 
 		add_action('wp_enqueue_scripts', function () {
-	    wp_enqueue_style('plugin-placeholder/main.css', PLUGIN_PLACEHOLDER_URL . '/dist/styles/main.css', false, null);
-	    wp_enqueue_script('plugin-placeholder/main.js', PLUGIN_PLACEHOLDER_URL . '/dist/scripts/main.js', ['jquery'], null, true);
+	    wp_enqueue_style('plugin-placeholder/main.css', PLUGIN_PLACEHOLDER_URL . 'dist/styles/main.css', false, null);
+	    wp_enqueue_script('plugin-placeholder/main.js', PLUGIN_PLACEHOLDER_URL . 'dist/scripts/main.js', ['jquery'], null, true);
 
 	    wp_localize_script( 'plugin-placeholder/main.js', 'plugin_placeholder_ajax', array(
 	      'ajaxurl'   => admin_url( 'admin-ajax.php' ),
