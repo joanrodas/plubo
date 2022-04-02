@@ -60,6 +60,19 @@ function plubo_add($option, $path='') {
   switch ($option) {
     case 'tailwind':
     case 'tailwindcss':
+      ob_start(); ?>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+      <?php $tailwind_contents = ob_get_clean();
+      echo "Installing Tailwind CSS with npm...\r\n";
+      shell_exec('npm -D tailwindcss');
+      file_put_contents('./resources/assets/styles/autoload/_tailwind.scss', $tailwind_contents);
+
+      $config = file_get_contents('./resources/assets/build/postcss.config.js');
+      $config = str_replace("//tailwindcss: {},", "tailwindcss: {},", $config);
+      file_put_contents('./resources/assets/build/postcss.config.js', $config);
+
       echo "Tailwind CSS ready to speed up you development ;)\r\n\r\n";
       break;
 

@@ -9,6 +9,7 @@ module.exports = ({ file, options }) => {
     parser: options.enabled.optimize ? 'postcss-safe-parser' : undefined,
     plugins: {
       autoprefixer: true,
+      //tailwindcss: {},
       cssnano: options.enabled.optimize ? cssnanoConfig : false,
     },
   };
