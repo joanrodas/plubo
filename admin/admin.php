@@ -4,12 +4,10 @@ class PluginPlaceholderAdmin {
 
 	protected $plugin_name;
 	protected $plugin_version;
-	protected $blade;
 
-  public function __construct( $plugin_name, $plugin_version, $blade ) {
+  public function __construct( $plugin_name, $plugin_version ) {
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
-		$this->blade = $blade;
     $this->load_dependencies();
 	}
 
@@ -18,7 +16,7 @@ class PluginPlaceholderAdmin {
     require_once PLUGIN_PLACEHOLDER_PATH . 'admin/ajax-actions.php';
     require_once PLUGIN_PLACEHOLDER_PATH . 'admin/post-actions.php';
 
-    $admin_menus = new PluginPlaceholderAdminMenus( $this->get_plugin_name(), $this->get_plugin_version(), $this->blade );
+    $admin_menus = new PluginPlaceholderAdminMenus( $this->get_plugin_name(), $this->get_plugin_version() );
     $ajax_actions = new PluginPlaceholderAjaxActions( $this->get_plugin_name(), $this->get_plugin_version() );
     $post_actions = new PluginPlaceholderPostActions( $this->get_plugin_name(), $this->get_plugin_version() );
 	}

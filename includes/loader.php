@@ -1,6 +1,4 @@
 <?php
-use Jenssegers\Blade\Blade;
-
 class PluginPlaceholder {
 
 	protected $plugin_name;
@@ -15,15 +13,15 @@ class PluginPlaceholder {
 	private function load_dependencies() {
 		require_once PLUGIN_PLACEHOLDER_PATH . 'vendor/autoload.php';
 		require_once PLUGIN_PLACEHOLDER_PATH . 'includes/i18n.php';
+		require_once PLUGIN_PLACEHOLDER_PATH . 'includes/utils.php';
+		require_once PLUGIN_PLACEHOLDER_PATH . 'includes/blade.php';
 		require_once PLUGIN_PLACEHOLDER_PATH . 'admin/admin.php';
 		require_once PLUGIN_PLACEHOLDER_PATH . 'public/public.php';
 		require_once PLUGIN_PLACEHOLDER_PATH . 'react/loader.php';
 
-		$blade = new Blade(PLUGIN_PLACEHOLDER_PATH . 'resources/views', PLUGIN_PLACEHOLDER_PATH . 'resources/cache');
-
 		$plugin_i18n = new PluginPlaceholderi18n();
-    $plugin_admin = new PluginPlaceholderAdmin( $this->get_plugin_name(), $this->get_plugin_version(), $blade );
-    $plugin_public = new PluginPlaceholderPublic( $this->get_plugin_name(), $this->get_plugin_version(), $blade );
+    $plugin_admin = new PluginPlaceholderAdmin( $this->get_plugin_name(), $this->get_plugin_version() );
+    $plugin_public = new PluginPlaceholderPublic( $this->get_plugin_name(), $this->get_plugin_version() );
 		$react = new PluginPlaceholderReactLoader( $this->get_plugin_name(), $this->get_plugin_version() );
 
 		add_filter( 'do_shortcode_tag', function($output, $tag, $attr) {

@@ -4,12 +4,10 @@ class PluginPlaceholderPublic {
 
 	protected $plugin_name;
 	protected $plugin_version;
-	protected $blade;
 
-  public function __construct( $plugin_name, $plugin_version, $blade, $activation=false ) {
+  public function __construct( $plugin_name, $plugin_version, $activation=false ) {
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
-		$this->blade = $blade;
     $this->load_dependencies($activation);
 	}
 
@@ -24,8 +22,8 @@ class PluginPlaceholderPublic {
     $api_endpoints = new PluginPlaceholderApiEndpoints( $this->get_plugin_name(), $this->get_plugin_version() );
     $custom_fields = new PluginPlaceholderCustomFields( $this->get_plugin_name(), $this->get_plugin_version() );
     $custom_post_types = new PluginPlaceholderCustomPostTypes( $this->get_plugin_name(), $this->get_plugin_version() );
-    $routes = new PluginPlaceholderRoutes( $this->get_plugin_name(), $this->get_plugin_version(), $this->blade );
-    $shortcodes = new PluginPlaceholderShortcodes( $this->get_plugin_name(), $this->get_plugin_version(), $this->blade );
+    $routes = new PluginPlaceholderRoutes( $this->get_plugin_name(), $this->get_plugin_version() );
+    $shortcodes = new PluginPlaceholderShortcodes( $this->get_plugin_name(), $this->get_plugin_version() );
     $taxonomies = new PluginPlaceholderTaxonomies( $this->get_plugin_name(), $this->get_plugin_version() );
 
 		if($activation) {
