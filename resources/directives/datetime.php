@@ -1,4 +1,4 @@
 <?php
-$blade->directive('datetime', function ($expression) {
-    return "<?php echo with({$expression})->format('F d, Y g:i a'); ?>";
+PluginPlaceholderBlade::getInstance()->make_directive('test', function ($expression) {
+    return "<?php echo 'SI'; ?>";
 });

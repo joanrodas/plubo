@@ -1,1 +1,1 @@
-Current date: @datetime($date)
+@test('hola')

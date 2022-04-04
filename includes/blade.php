@@ -8,10 +8,11 @@ class PluginPlaceholderBlade
 
     private function __construct() {
       $this->blade = new Blade(PLUGIN_PLACEHOLDER_PATH . 'resources/views', PLUGIN_PLACEHOLDER_PATH . 'resources/cache');
-
-      // foreach ( glob(PLUGIN_PLACEHOLDER_PATH . 'resources/directives/*.php') as $filename ) {
-      //   require_once $filename;
-      // }
+      add_action( 'init', function() {
+        foreach ( glob(PLUGIN_PLACEHOLDER_PATH . 'resources/directives/*.php') as $filename ) {
+          require_once $filename;
+        }
+      }, 1 );
     }
 
     // Clone not allowed
@@ -29,7 +30,7 @@ class PluginPlaceholderBlade
     }
 
     public function template( $name, $args=array() ) {
-      echo $this->blade->render($name, $args);
+      return $this->blade->render($name, $args);
     }
 
 }

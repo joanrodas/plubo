@@ -21,7 +21,7 @@ class PluginPlaceholderShortcodes {
 	}
 
 	public function example_function($atts, $content = "") {
-		$this->blade->template('test');
+		return $this->blade->template('test');
 	}
 
 }
