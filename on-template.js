@@ -51,6 +51,15 @@ const newReadme = readme
 
 writeFileSync('./README.md', newReadme, { encoding: 'utf8' })
 
+const execSync = require('child_process').execSync;
+
+const output = execSync('chmod +x plubo.sh && ./plubo.sh', { encoding: 'utf-8' });  // the default is 'buffer'
+console.log('Output was:\n', output);
+
+const output_php = execSync('chmod +x plubo && php -f plubo init', { encoding: 'utf-8' });  // the default is 'buffer'
+console.log('Output was:\n', output_php);
+
+
 /**
  * CLEAN UP
  */
