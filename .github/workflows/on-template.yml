@@ -1,0 +1,31 @@
+name: On Template
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  npm-publish:
+    name: on template
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Replace
+        run: node ./on-template.js
+
+      - name: push
+        uses: github-actions-x/commit@v2.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: replaces template variables'
+          rebase: 'true'
