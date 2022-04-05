@@ -1,4 +1,6 @@
-# Plubo
+<p align="center">
+  <img src='https://raw.githubusercontent.com/joanrodas/plubo-docs/main/images/plubo.png' alt='Plubo' />
+</p>
 
 Plubo is a really simple WordPress plugin boilerplate created to speed up plugin development.
 
