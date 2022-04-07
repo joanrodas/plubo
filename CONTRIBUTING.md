@@ -20,7 +20,7 @@ To make a pull request:
 5. Update the documentation if necessary.
 
 ## Report bugs using Github's [issues](https://github.com/joanrodas/plubo/issues)
-GitHub issues are great to track public bugs. Report a bug by [opening a new issue](); it's that easy!
+GitHub issues are great to track public bugs. Report a bug by [opening a new issue](https://github.com/joanrodas/plubo/issues/new/choose); it's that easy!
 
 ## Write bug reports with detail, background, and sample code
 
