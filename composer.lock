@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "25185aa1cf771152bfe6d5956cf73724",
+    "content-hash": "4c55b2496a7f2b98f233748229a89da4",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -238,7 +238,7 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v8.83.6",
+            "version": "v8.83.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
@@ -291,7 +291,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v8.83.6",
+            "version": "v8.83.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -345,7 +345,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v8.83.6",
+            "version": "v8.83.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -396,7 +396,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v8.83.6",
+            "version": "v8.83.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -444,7 +444,7 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v8.83.6",
+            "version": "v8.83.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -499,7 +499,7 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v8.83.6",
+            "version": "v8.83.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
@@ -561,7 +561,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v8.83.6",
+            "version": "v8.83.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -607,7 +607,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v8.83.6",
+            "version": "v8.83.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -655,16 +655,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v8.83.6",
+            "version": "v8.83.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "79afba1609f944a1678986c9e2c4486ae25999a6"
+                "reference": "5dd2ffb98c6169f8fcf84c065da3c27289e737af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/79afba1609f944a1678986c9e2c4486ae25999a6",
-                "reference": "79afba1609f944a1678986c9e2c4486ae25999a6",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/5dd2ffb98c6169f8fcf84c065da3c27289e737af",
+                "reference": "5dd2ffb98c6169f8fcf84c065da3c27289e737af",
                 "shasum": ""
             },
             "require": {
@@ -719,11 +719,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-02-25T19:54:55+00:00"
+            "time": "2022-04-04T15:14:19+00:00"
         },
         {
             "name": "illuminate/view",
-            "version": "v8.83.6",
+            "version": "v8.83.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
@@ -836,6 +836,60 @@
                 }
             ],
             "time": "2020-09-17T08:25:26+00:00"
+        },
+        {
+            "name": "joanrodas/plubo-routes",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joanrodas/plubo-routes.git",
+                "reference": "aa7afcd04837d2d5ea547e4dfcd121093a0528d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joanrodas/plubo-routes/zipball/aa7afcd04837d2d5ea547e4dfcd121093a0528d7",
+                "reference": "aa7afcd04837d2d5ea547e4dfcd121093a0528d7",
+                "shasum": ""
+            },
+            "require": {
+                "jenssegers/blade": "^1.4",
+                "php": ">=7.4"
+            },
+            "bin": [
+                "bin/plubo-routes"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PluboRoutes\\": "PluboRoutes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Joan Rodas Cusidó",
+                    "email": "joan@sirvelia.com",
+                    "homepage": "https://sirvelia.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "WordPress routes made simple.",
+            "homepage": "https://github.com/joanrodas/plubo-routes",
+            "keywords": [
+                "plugin",
+                "routes",
+                "routing",
+                "wordpress",
+                "wp"
+            ],
+            "support": {
+                "issues": "https://github.com/joanrodas/plubo-routes/issues",
+                "source": "https://github.com/joanrodas/plubo-routes/tree/v0.1.1"
+            },
+            "time": "2022-04-07T11:06:33+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -1034,16 +1088,16 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8"
+                "reference": "e8b495ea28c1d97b5e0c121748d6f9b53d075c66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/6f981ee24cf69ee7ce9736146d1c57c2780598a8",
-                "reference": "6f981ee24cf69ee7ce9736146d1c57c2780598a8",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/e8b495ea28c1d97b5e0c121748d6f9b53d075c66",
+                "reference": "e8b495ea28c1d97b5e0c121748d6f9b53d075c66",
                 "shasum": ""
             },
             "require": {
@@ -1081,7 +1135,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.0"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.1"
             },
             "funding": [
                 {
@@ -1097,7 +1151,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-12T14:48:14+00:00"
+            "time": "2022-01-02T09:53:40+00:00"
         },
         {
             "name": "symfony/finder",
@@ -1330,16 +1384,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v5.4.6",
+            "version": "v5.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "a7ca9fdfffb0174209440c2ffa1dee228e15d95b"
+                "reference": "e1eb790575202ee3ac2659f55b93b05853726f8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/a7ca9fdfffb0174209440c2ffa1dee228e15d95b",
-                "reference": "a7ca9fdfffb0174209440c2ffa1dee228e15d95b",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/e1eb790575202ee3ac2659f55b93b05853726f8e",
+                "reference": "e1eb790575202ee3ac2659f55b93b05853726f8e",
                 "shasum": ""
             },
             "require": {
@@ -1407,7 +1461,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v5.4.6"
+                "source": "https://github.com/symfony/translation/tree/v5.4.7"
             },
             "funding": [
                 {
@@ -1423,20 +1477,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-02T12:56:28+00:00"
+            "time": "2022-03-24T17:09:09+00:00"
         },
         {
             "name": "symfony/translation-contracts",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation-contracts.git",
-                "reference": "d28150f0f44ce854e942b671fc2620a98aae1b1e"
+                "reference": "1211df0afa701e45a04253110e959d4af4ef0f07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/d28150f0f44ce854e942b671fc2620a98aae1b1e",
-                "reference": "d28150f0f44ce854e942b671fc2620a98aae1b1e",
+                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/1211df0afa701e45a04253110e959d4af4ef0f07",
+                "reference": "1211df0afa701e45a04253110e959d4af4ef0f07",
                 "shasum": ""
             },
             "require": {
@@ -1485,7 +1539,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/translation-contracts/tree/v2.5.0"
+                "source": "https://github.com/symfony/translation-contracts/tree/v2.5.1"
             },
             "funding": [
                 {
@@ -1501,7 +1555,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-17T14:20:01+00:00"
+            "time": "2022-01-02T09:53:40+00:00"
         },
         {
             "name": "voku/portable-ascii",
@@ -1584,7 +1638,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.4"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
 }

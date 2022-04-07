@@ -16,7 +16,8 @@
     "require": {
       "php": ">=7.4",
       "jenssegers/blade": "^1.4",
-      "htmlburger/carbon-fields": "^3.3"
+      "htmlburger/carbon-fields": "^3.3",
+      "joanrodas/plubo-routes": "^0.1.0"
     },
     "scripts": {
       "post-create-project-cmd": [
