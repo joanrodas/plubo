@@ -839,25 +839,21 @@
         },
         {
             "name": "joanrodas/plubo-routes",
-            "version": "v0.1.1",
+            "version": "v0.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joanrodas/plubo-routes.git",
-                "reference": "aa7afcd04837d2d5ea547e4dfcd121093a0528d7"
+                "reference": "10807345409048b52132f01d1c76ac3e47418c53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joanrodas/plubo-routes/zipball/aa7afcd04837d2d5ea547e4dfcd121093a0528d7",
-                "reference": "aa7afcd04837d2d5ea547e4dfcd121093a0528d7",
+                "url": "https://api.github.com/repos/joanrodas/plubo-routes/zipball/10807345409048b52132f01d1c76ac3e47418c53",
+                "reference": "10807345409048b52132f01d1c76ac3e47418c53",
                 "shasum": ""
             },
             "require": {
-                "jenssegers/blade": "^1.4",
                 "php": ">=7.4"
             },
-            "bin": [
-                "bin/plubo-routes"
-            ],
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -887,9 +883,9 @@
             ],
             "support": {
                 "issues": "https://github.com/joanrodas/plubo-routes/issues",
-                "source": "https://github.com/joanrodas/plubo-routes/tree/v0.1.1"
+                "source": "https://github.com/joanrodas/plubo-routes/tree/v0.1.5"
             },
-            "time": "2022-04-07T11:06:33+00:00"
+            "time": "2022-04-10T12:20:07+00:00"
         },
         {
             "name": "nesbot/carbon",

@@ -14,9 +14,8 @@ class Router {
    * Create a new Router
    * @param {Object} routes
    */
-  constructor(routes, shortcodes) {
+  constructor(routes) {
     this.routes = routes;
-    this.shortcodes = shortcodes;
   }
 
   /**
@@ -40,21 +39,6 @@ class Router {
     }
   }
 
-  fireShortcode(shortcode, event = 'init', arg) {
-    document.dispatchEvent(new CustomEvent('routed', {
-      bubbles: true,
-      detail: {
-        shortcode,
-        fn: event,
-      },
-    }));
-
-    const fire = shortcode !== '' && this.shortcodes[shortcode] && typeof this.shortcodes[shortcode][event] === 'function';
-    if (fire) {
-      this.shortcodes[shortcode][event](arg);
-    }
-  }
-
   /**
    * Automatically load and fire Router events
    *
@@ -65,8 +49,7 @@ class Router {
    *  * common finalize
    */
   loadEvents() {
-    // Fire common init JS
-    this.fire('common');
+    this.fire('common'); // Fire common init JS
 
     // Fire page-specific init JS, and then finalize JS
     document.body.className
@@ -81,34 +64,20 @@ class Router {
 
     var shortcodesPresent = document.getElementsByClassName('plubo-shortcode');
     if (shortcodesPresent.length > 0) {
-      console.log('SHORTCODE PRESENT');
       for (var i = 0; i < shortcodesPresent.length; i++) {
-        console.log(shortcodesPresent[i].dataset.tag);
         shortcodesPresent[i].dataset.tag
         .toLowerCase()
         .replace(/-/g, '_')
         .split(/\s+/)
         .map(camelCase)
         .forEach((tag) => {
-          this.fireShortcode(tag);
-          this.fireShortcode(tag, 'finalize');
+          this.fire(tag);
+          this.fire(tag, 'finalize');
         });
       }
     }
 
-    // Fire shortcode-specific init JS, and then finalize JS
-    document.body.className
-      .toLowerCase()
-      .replace(/-/g, '_')
-      .split(/\s+/)
-      .map(camelCase)
-      .forEach((className) => {
-        this.fire(className);
-        this.fire(className, 'finalize');
-      });
-
-    // Fire common finalize JS
-    this.fire('common', 'finalize');
+    this.fire('common', 'finalize'); // Fire common finalize JS
   }
 }
 

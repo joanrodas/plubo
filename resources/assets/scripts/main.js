@@ -13,14 +13,11 @@ import audio from './shortcodes/audio';
 const routes = {
   common, // All pages
   home, // Home page
-};
-
-const shortcodes = {
   audio, // Audio shortcode
 };
 
 /** Populate Router instance with DOM routes */
-const router = new Router(routes, shortcodes);
+const router = new Router(routes);
 
 // Load Events
 jQuery(document).ready(() => router.loadEvents());

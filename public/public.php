@@ -5,13 +5,13 @@ class PluginPlaceholderPublic {
 	protected $plugin_name;
 	protected $plugin_version;
 
-  public function __construct( $plugin_name, $plugin_version, $activation=false ) {
+  public function __construct( $plugin_name, $plugin_version ) {
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
-    $this->load_dependencies($activation);
+    $this->load_dependencies();
 	}
 
-	private function load_dependencies($activation) {
+	private function load_dependencies() {
 		require_once PLUGIN_PLACEHOLDER_PATH . 'public/api-endpoints.php';
     require_once PLUGIN_PLACEHOLDER_PATH . 'public/custom-fields.php';
     require_once PLUGIN_PLACEHOLDER_PATH . 'public/custom-post-types.php';
@@ -25,12 +25,6 @@ class PluginPlaceholderPublic {
     $routes = new PluginPlaceholderRoutes( $this->get_plugin_name(), $this->get_plugin_version() );
     $shortcodes = new PluginPlaceholderShortcodes( $this->get_plugin_name(), $this->get_plugin_version() );
     $taxonomies = new PluginPlaceholderTaxonomies( $this->get_plugin_name(), $this->get_plugin_version() );
-
-		if($activation) {
-			$custom_post_types->register_post_types();
-			$api_endpoints->add_endpoints();
-			$routes->add_rewrite_rules();
-		}
 	}
 
 	private function get_plugin_name() {

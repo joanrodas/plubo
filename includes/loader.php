@@ -12,6 +12,8 @@ class PluginPlaceholder {
 
 	private function load_dependencies() {
 		require_once PLUGIN_PLACEHOLDER_PATH . 'vendor/autoload.php';
+		PluboRoutes\PluboRoutesProcessor::init();
+
 		require_once PLUGIN_PLACEHOLDER_PATH . 'includes/i18n.php';
 		require_once PLUGIN_PLACEHOLDER_PATH . 'includes/utils.php';
 		require_once PLUGIN_PLACEHOLDER_PATH . 'includes/blade.php';
