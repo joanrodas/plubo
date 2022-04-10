@@ -62,6 +62,7 @@ class Router {
         this.fire(className, 'finalize');
       });
 
+    // Fire shortcode-specific init JS, and then finalize JS
     var shortcodesPresent = document.getElementsByClassName('plubo-shortcode');
     if (shortcodesPresent.length > 0) {
       for (var i = 0; i < shortcodesPresent.length; i++) {
