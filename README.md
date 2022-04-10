@@ -17,6 +17,7 @@ Plubo is a really simple WordPress plugin boilerplate created to speed up plugin
 
 ## Getting started
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/joanrodas/plubo/On%20Template?label=build&style=for-the-badge)
+![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability-percentage/joanrodas/plubo?style=for-the-badge)
 [![GitHub issues](https://img.shields.io/github/issues/joanrodas/plubo?style=for-the-badge)](https://github.com/joanrodas/plubo/issues)
 
 There are 2 options to start using Plubo:
