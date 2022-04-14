@@ -1,6 +1,7 @@
 <?php
+namespace PluginPlaceholder\Admin;
 
-class PluginPlaceholderCrons {
+class Crons {
 
 	protected $plugin_name;
 	protected $plugin_version;

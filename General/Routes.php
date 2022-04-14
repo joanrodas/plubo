@@ -1,9 +1,11 @@
 <?php
+namespace PluginPlaceholder\General;
+
 use PluboRoutes\Route\Route;
 use PluboRoutes\Route\ActionRoute;
 use PluboRoutes\Route\RedirectRoute;
 
-class PluginPlaceholderRoutes {
+class Routes {
 
 	protected $plugin_name;
 	protected $plugin_version;

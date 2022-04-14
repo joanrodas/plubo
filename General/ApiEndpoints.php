@@ -1,10 +1,12 @@
 <?php
+namespace PluginPlaceholder\General;
+
 use PluboRoutes\Endpoint\GetEndpoint;
 use PluboRoutes\Endpoint\PostEndpoint;
 use PluboRoutes\Endpoint\PutEndpoint;
 use PluboRoutes\Endpoint\DeleteEndpoint;
 
-class PluginPlaceholderApiEndpoints {
+class ApiEndpoints {
 
 	protected $plugin_name;
 	protected $plugin_version;

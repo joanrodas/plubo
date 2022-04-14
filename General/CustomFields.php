@@ -1,8 +1,10 @@
 <?php
+namespace PluginPlaceholder\General;
+
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-class PluginPlaceholderCustomFields {
+class CustomFields {
 
 	protected $plugin_name;
 	protected $plugin_version;

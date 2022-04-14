@@ -1,6 +1,9 @@
 <?php
+namespace PluginPlaceholder\General;
 
-class PluginPlaceholderShortcodes {
+use PluginPlaceholder\Includes\BladeLoader;
+
+class Shortcodes {
 
 	protected $plugin_name;
 	protected $plugin_version;
@@ -10,7 +13,7 @@ class PluginPlaceholderShortcodes {
   public function __construct( $plugin_name, $plugin_version ) {
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
-		$this->blade = PluginPlaceholderBlade::getInstance();
+		$this->blade = BladeLoader::getInstance();
 
     add_action( 'init', array($this, 'add_shortcodes') );
 	}

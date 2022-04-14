@@ -1,6 +1,7 @@
 <?php
+namespace PluginPlaceholder\Includes;
 
-class PluginPlaceholderi18n {
+class Languages {
 
   public function __construct() {
     add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );

@@ -13,11 +13,16 @@
         "role": "Developer"
       }
     ],
+    "autoload": {
+      "psr-4": {
+        "PluginPlaceholder\\": ""
+      }
+    },
     "require": {
       "php": ">=7.4",
       "jenssegers/blade": "^1.4",
       "htmlburger/carbon-fields": "^3.3",
-      "joanrodas/plubo-routes": "^0.1.0"
+      "joanrodas/plubo-routes": "^0.4.0"
     },
     "scripts": {
       "post-create-project-cmd": [

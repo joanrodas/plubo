@@ -1,5 +1,7 @@
 <?php
-class PluginPlaceholderReactLoader {
+namespace PluginPlaceholder\React;
+
+class ReactLoader {
 
 	protected $plugin_name;
 	protected $plugin_version;

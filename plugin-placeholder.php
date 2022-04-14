@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The plugin bootstrap file
  *
@@ -25,16 +24,15 @@ define( 'PLUGIN_PLACEHOLDER_VERSION', '1.0.0' );
 define( 'PLUGIN_PLACEHOLDER_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PLUGIN_PLACEHOLDER_URL', plugin_dir_url( __FILE__ ) );
 
+require_once PLUGIN_PLACEHOLDER_PATH . 'vendor/autoload.php';
+
 register_activation_hook( __FILE__, function() {
-  require_once PLUGIN_PLACEHOLDER_PATH . 'includes/activator.php';
-  PluginPlaceholderActivator::activate();
+  PluginPlaceholder\Includes\Activator::activate();
 } );
 
 register_deactivation_hook( __FILE__, function() {
-  require_once PLUGIN_PLACEHOLDER_PATH . 'includes/deactivator.php';
-  PluginPlaceholderDeactivator::deactivate();
+  PluginPlaceholder\Includes\Deactivator::deactivate();
 } );
 
 //LOAD ALL PLUGIN FILES
-require plugin_dir_path( __FILE__ ) . 'includes/loader.php';
-$loader = new PluginPlaceholder();
+$loader = new PluginPlaceholder\Includes\Loader();

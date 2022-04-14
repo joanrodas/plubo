@@ -1,6 +1,9 @@
 <?php
+namespace PluginPlaceholder\Admin;
 
-class PluginPlaceholderEmails {
+use PluginPlaceholder\Includes\BladeLoader;
+
+class Emails {
 
 	protected $plugin_name;
 	protected $plugin_version;
@@ -10,7 +13,7 @@ class PluginPlaceholderEmails {
   public function __construct( $plugin_name, $plugin_version ) {
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
-		$this->blade = PluginPlaceholderBlade::getInstance();
+		$this->blade = BladeLoader::getInstance();
 
 		$this->send_emails();
 	}

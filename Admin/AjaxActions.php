@@ -1,6 +1,7 @@
 <?php
+namespace PluginPlaceholder\Admin;
 
-class PluginPlaceholderAjaxActions {
+class AjaxActions {
 
 	protected $plugin_name;
 	protected $plugin_version;

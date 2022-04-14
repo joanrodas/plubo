@@ -1,6 +1,7 @@
 <?php
+namespace PluginPlaceholder\Admin;
 
-class PluginPlaceholderPostActions {
+class PostActions {
 
 	protected $plugin_name;
 	protected $plugin_version;

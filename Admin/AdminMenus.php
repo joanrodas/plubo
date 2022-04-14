@@ -1,19 +1,25 @@
 <?php
+namespace PluginPlaceholder\Admin;
 
-class PluginPlaceholderTaxonomies {
+use PluginPlaceholder\Includes\BladeLoader;
+
+class AdminMenus {
 
 	protected $plugin_name;
 	protected $plugin_version;
 
+	private $blade;
+
   public function __construct( $plugin_name, $plugin_version ) {
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
+		$this->blade = BladeLoader::getInstance();
 
-    add_action( 'init', array($this, 'register_taxonomies') );
+		$this->add_menus();
 	}
 
-	public function register_taxonomies() {
-    // register_taxonomy( 'tax_slug', 'post_type', $args );
+	private function add_menus() {
+
 	}
 
 }

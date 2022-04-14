@@ -1,7 +1,9 @@
 <?php
+namespace PluginPlaceholder\Includes;
+
 use Jenssegers\Blade\Blade;
 
-class PluginPlaceholderBlade
+class BladeLoader
 {
     private static $instance = NULL;
     private $blade;
@@ -20,7 +22,7 @@ class PluginPlaceholderBlade
 
     public static function getInstance() {
       if ( is_null(self::$instance) ) {
-        self::$instance = new PluginPlaceholderBlade();
+        self::$instance = new BladeLoader();
       }
       return self::$instance;
     }
