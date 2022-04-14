@@ -60,14 +60,14 @@ const execSync = require('child_process').execSync;
 const output = execSync('find ./ -type f -name \'*.php\' | xargs sed -i "s/plugin-placeholder/${PWD##*/}/g"', { encoding: 'utf-8' });  // the default is 'buffer'
 console.log('Output was:\n', output);
 
-const output = execSync('find ./ -type f -name \'*.php\' | xargs sed -i "s/PLUGIN_PLACEHOLDER/$(tr \'[a-z]\' \'[A-Z]\' <<< ${PWD##*/})/g"', { encoding: 'utf-8' });  // the default is 'buffer'
-console.log('Output was:\n', output);
+const output2 = execSync('find ./ -type f -name \'*.php\' | xargs sed -i "s/PLUGIN_PLACEHOLDER/$(tr \'[a-z]\' \'[A-Z]\' <<< ${PWD##*/})/g"', { encoding: 'utf-8' });  // the default is 'buffer'
+console.log('Output was:\n', output2);
 
-const output = execSync('find ./ -type f -name \'*.php\' | xargs sed -i "s/PluginPlaceholder/$(awk \'BEGIN{FS="";RS="-";ORS=""} {$0=toupper(substr($0,1,1)) substr($0,2)} 1\' <<< ${PWD##*/})/g"', { encoding: 'utf-8' });  // the default is 'buffer'
-console.log('Output was:\n', output);
+const output3 = execSync('find ./ -type f -name \'*.php\' | xargs sed -i "s/PluginPlaceholder/$(awk \'BEGIN{FS="";RS="-";ORS=""} {$0=toupper(substr($0,1,1)) substr($0,2)} 1\' <<< ${PWD##*/})/g"', { encoding: 'utf-8' });  // the default is 'buffer'
+console.log('Output was:\n', output3);
 
-const output = execSync('php -r "rename(\'plugin-placeholder.php\', \'${PWD##*/}.php\');"', { encoding: 'utf-8' });  // the default is 'buffer'
-console.log('Output was:\n', output);
+const output4 = execSync('php -r "rename(\'plugin-placeholder.php\', \'${PWD##*/}.php\');"', { encoding: 'utf-8' });  // the default is 'buffer'
+console.log('Output was:\n', output4);
 
 
 /**
