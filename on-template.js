@@ -7,7 +7,7 @@ const packageLock = require('./package-lock.json')
 
 const TEMPLATE_GITHUB_REPOSITORY = 'joanrodas/plubo'
 const { GITHUB_REPOSITORY } = process.env
-console.log('NEW REPO: ' + process.env);
+console.log('NEW REPO: ' + GITHUB_REPOSITORY);
 
 if (GITHUB_REPOSITORY === TEMPLATE_GITHUB_REPOSITORY) {
   // eslint-disable-next-line no-console
@@ -28,7 +28,9 @@ const PACKAGE_NAME = `@${GITHUB_REPOSITORY.toLowerCase()}`
 
 package.name = PACKAGE_NAME
 package.homepage = package.homepage.replace(TEMPLATE_GITHUB_REPOSITORY, GITHUB_REPOSITORY)
-writeFileSync('./package.json', JSON.stringify(package, undefined, 2), { encoding: 'utf8' })
+writeFileSync('./package.json', JSON.stringify(package, undefined, 2), {
+  encoding: 'utf8'
+})
 
 /**
  * package-lock.json
@@ -54,11 +56,18 @@ writeFileSync('./README.md', newReadme, { encoding: 'utf8' })
 
 const execSync = require('child_process').execSync;
 
-const output = execSync('chmod +x plubo.sh && ./plubo.sh', { encoding: 'utf-8' });  // the default is 'buffer'
+
+const output = execSync('find ./ -type f -name \'*.php\' | xargs sed -i "s/plugin-placeholder/${PWD##*/}/g"', { encoding: 'utf-8' });  // the default is 'buffer'
 console.log('Output was:\n', output);
 
-const output_php = execSync('chmod +x plubo && php -f plubo init', { encoding: 'utf-8' });  // the default is 'buffer'
-console.log('Output was:\n', output_php);
+const output = execSync('find ./ -type f -name \'*.php\' | xargs sed -i "s/PLUGIN_PLACEHOLDER/$(tr \'[a-z]\' \'[A-Z]\' <<< ${PWD##*/})/g"', { encoding: 'utf-8' });  // the default is 'buffer'
+console.log('Output was:\n', output);
+
+const output = execSync('find ./ -type f -name \'*.php\' | xargs sed -i "s/PluginPlaceholder/$(awk \'BEGIN{FS="";RS="-";ORS=""} {$0=toupper(substr($0,1,1)) substr($0,2)} 1\' <<< ${PWD##*/})/g"', { encoding: 'utf-8' });  // the default is 'buffer'
+console.log('Output was:\n', output);
+
+const output = execSync('php -r "rename(\'plugin-placeholder.php\', \'${PWD##*/}.php\');"', { encoding: 'utf-8' });  // the default is 'buffer'
+console.log('Output was:\n', output);
 
 
 /**
