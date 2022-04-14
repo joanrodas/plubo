@@ -20,9 +20,9 @@
     },
     "require": {
       "php": ">=7.4",
-      "jenssegers/blade": "^1.4",
-      "htmlburger/carbon-fields": "^3.3",
-      "joanrodas/plubo-routes": "^0.4.0"
+      "jenssegers/blade": "1.4.0",
+      "htmlburger/carbon-fields": "3.3.2",
+      "joanrodas/plubo-routes": "0.4.0"
     },
     "scripts": {
       "post-create-project-cmd": [
