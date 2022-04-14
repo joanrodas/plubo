@@ -7,7 +7,7 @@ on:
 
 jobs:
   npm-publish:
-    name: on template
+    name: On use template
 
     runs-on: ubuntu-latest
 
@@ -18,14 +18,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 16
 
-      - name: Replace
-        run: node ./.github/on-template.js
+      - name: Replace if on template
+        run: node ./on-template.js
 
-      - name: push
-        uses: github-actions-x/commit@v2.9
+      - name: Commit
+        uses: github-actions-x/commit@v2.8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'chore: replaces template variables'
+          commit-message: 'Replace template variables'
           rebase: 'true'

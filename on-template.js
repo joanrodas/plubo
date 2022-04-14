@@ -7,6 +7,7 @@ const packageLock = require('./package-lock.json')
 
 const TEMPLATE_GITHUB_REPOSITORY = 'joanrodas/plubo'
 const { GITHUB_REPOSITORY } = process.env
+console.log('NEW REPO: ' + process.env);
 
 if (GITHUB_REPOSITORY === TEMPLATE_GITHUB_REPOSITORY) {
   // eslint-disable-next-line no-console
@@ -63,5 +64,6 @@ console.log('Output was:\n', output_php);
 /**
  * CLEAN UP
  */
+console.log('CLEANING UP');
 unlinkSync('./on-template.js')
 unlinkSync('./.github/workflows/on-template.yml')
