@@ -1,14 +1,9 @@
 /** Import defined variables */
 @import "common/variables";
 
-/** Import everything from autoload */
-@import "./autoload/**/*";
-
 /**
  * Import used npm dependencies
  *
- * Prefix your imports with `~` to grab from node_modules/
- * @see https://github.com/webpack-contrib/sass-loader#imports
  */
 //@import "~select2/src/scss/core";
 
@@ -18,6 +13,3 @@
 /** Import specific components */
 @import "components/buttons";
 @import "components/forms";
-
-/** Import specific layouts */
-//@import "layouts/example";

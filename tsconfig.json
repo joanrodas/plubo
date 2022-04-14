@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "files": [
+    "./resources/scripts/app.ts"
+  ]
+}

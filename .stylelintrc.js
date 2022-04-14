@@ -7,7 +7,6 @@ module.exports = {
       true,
       {
         'ignoreAtRules': [
-          'tailwind',
           'extend',
           'at-root',
           'debug',

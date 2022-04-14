@@ -1,8 +1,3 @@
-// import external dependencies
-
-// Import everything from autoload
-import './autoload/**/*'
-
 // import local dependencies
 import Router from './util/Router';
 import common from './routes/common';

@@ -21,7 +21,7 @@ jobs:
           node-version: 14
 
       - name: Replace
-        run: node ./on-template.js
+        run: node ./.github/on-template.js
 
       - name: push
         uses: github-actions-x/commit@v2.9
