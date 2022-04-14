@@ -24,7 +24,7 @@ jobs:
         run: node ./on-template.js
 
       - name: push
-        uses: github-actions-x/commit@v2.1
+        uses: github-actions-x/commit@v2.9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'chore: replaces template variables'
