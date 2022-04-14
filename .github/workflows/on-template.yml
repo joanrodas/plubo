@@ -24,7 +24,7 @@ jobs:
         run: node ./on-template.js
 
       - name: Commit
-        uses: github-actions-x/commit@v2.8
+        uses: github-actions-x/commit@v2.9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'Replace template variables'
