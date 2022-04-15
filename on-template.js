@@ -4,6 +4,7 @@ const { writeFileSync, readFileSync, unlinkSync } = require('fs')
 
 const package = require('./package.json')
 const packageLock = require('./package-lock.json')
+const composerfile = require('./composer.json')
 
 const TEMPLATE_GITHUB_REPOSITORY = 'joanrodas/plubo'
 const { GITHUB_REPOSITORY } = process.env
@@ -42,25 +43,19 @@ writeFileSync('./package-lock.json', JSON.stringify(packageLock, undefined, 2), 
 })
 
 /**
- * README
+ * composer.json
  */
 
-const readme = readFileSync('./README.md', { encoding: 'utf8' })
-const newReadme = readme
-  .split(TEMPLATE_PACKAGE_NAME)
-  .join(PACKAGE_NAME)
-  .split(TEMPLATE_GITHUB_REPOSITORY)
-  .join(GITHUB_REPOSITORY)
-
-writeFileSync('./README.md', newReadme, { encoding: 'utf8' })
+composerfile.name = PACKAGE_NAME
+composerfile.homepage = composerfile.homepage.replace(TEMPLATE_GITHUB_REPOSITORY, GITHUB_REPOSITORY)
+writeFileSync('./composer.json', JSON.stringify(composerfile, undefined, 2), {
+  encoding: 'utf8'
+})
 
 const execSync = require('child_process').execSync;
 
-
 const output = execSync('chmod +x plubo.sh && ./plubo.sh', { encoding: 'utf-8' });  // the default is 'buffer'
 console.log('Output was:\n', output);
-
-
 
 /**
  * CLEAN UP
@@ -68,3 +63,7 @@ console.log('Output was:\n', output);
 console.log('CLEANING UP');
 unlinkSync('./on-template.js')
 unlinkSync('./.github/workflows/on-template.yml')
+unlinkSync('./renovate.json')
+unlinkSync('./SECURITY.md')
+unlinkSync('./CONTRIBUTING.md')
+unlinkSync('./CODE_OF_CONDUCT.md')
