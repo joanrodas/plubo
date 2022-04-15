@@ -18,13 +18,4 @@ class Utils
       }
       return self::$instance;
     }
-
-    public function make_directive(string $name, callable $handler) {
-      $this->blade->directive($name, $handler);
-    }
-
-    public function template( $name, $args=array() ) {
-      return $this->blade->render($name, $args);
-    }
-
 }
