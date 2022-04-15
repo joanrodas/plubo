@@ -7,3 +7,4 @@ yarn-error.log
 /vendor
 resources/assets/config-local.json
 .budfiles
+resources/cache
