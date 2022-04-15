@@ -20,6 +20,23 @@ class AdminMenus {
 
 	public function add_admin_menus() {
 
+		// EXAMPLE
+		// add_menu_page(
+    //     __( 'Custom Page Routes', 'custom-page-routes' ),
+    //     __( 'Custom Page Routes', 'custom-page-routes' ),
+    //     'manage_options',
+    //     'custom-page-routes',
+    //     function() {
+		// 				$this->display_template('settings');
+		// 		},
+    //     'dashicons-admin-settings',
+    //     6
+    // );
+
+	}
+
+	private function display_template(string $template) {
+			echo $this->blade->template($template);
 	}
 
 }
