@@ -1,6 +1,6 @@
 {
-  "name": "PLUBO",
-  "version": "9.0.10",
+  "name": "@joanrodas/plubo",
+  "version": "1.0.0",
   "author": "Joan Rodas <joan@sirvelia.com>",
   "homepage": "https://plubo.dev",
   "private": true,

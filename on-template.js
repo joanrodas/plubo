@@ -4,7 +4,7 @@ const { writeFileSync, readFileSync, unlinkSync } = require('fs')
 
 const package = require('./package.json')
 const packageLock = require('./package-lock.json')
-const composerfile = require('./composer.json')
+const composerFile = require('./composer.json')
 
 const TEMPLATE_GITHUB_REPOSITORY = 'joanrodas/plubo'
 const { GITHUB_REPOSITORY } = process.env
@@ -22,6 +22,7 @@ if (!GITHUB_REPOSITORY) {
 
 const TEMPLATE_PACKAGE_NAME = package.name
 const PACKAGE_NAME = `@${GITHUB_REPOSITORY.toLowerCase()}`
+const COMPOSER_NAME = `${GITHUB_REPOSITORY.toLowerCase()}`
 
 /**
  * package.json
@@ -46,9 +47,9 @@ writeFileSync('./package-lock.json', JSON.stringify(packageLock, undefined, 2), 
  * composer.json
  */
 
-composerfile.name = PACKAGE_NAME
-composerfile.homepage = composerfile.homepage.replace(TEMPLATE_GITHUB_REPOSITORY, GITHUB_REPOSITORY)
-writeFileSync('./composer.json', JSON.stringify(composerfile, undefined, 2), {
+composerFile.name = COMPOSER_NAME
+composerFile.description = 'A WordPress plugin made with PluBo'
+writeFileSync('./composer.json', JSON.stringify(composerFile, undefined, 2), {
   encoding: 'utf8'
 })
 
