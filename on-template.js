@@ -3,7 +3,6 @@
 const { writeFileSync, readFileSync, unlinkSync } = require('fs')
 
 const package = require('./package.json')
-const packageLock = require('./package-lock.json')
 const composerFile = require('./composer.json')
 
 const TEMPLATE_GITHUB_REPOSITORY = 'joanrodas/plubo'
@@ -32,15 +31,6 @@ package.name = PACKAGE_NAME
 package.homepage = package.homepage.replace(TEMPLATE_GITHUB_REPOSITORY, GITHUB_REPOSITORY)
 writeFileSync('./package.json', JSON.stringify(package, undefined, 2), {
   encoding: 'utf8'
-})
-
-/**
- * package-lock.json
- */
-
-packageLock.name = PACKAGE_NAME
-writeFileSync('./package-lock.json', JSON.stringify(packageLock, undefined, 2), {
-  encoding: 'utf8',
 })
 
 /**
