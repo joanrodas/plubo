@@ -26,7 +26,7 @@ class Loader {
 	}
 
 	private function load_dependencies() {
-		\PluboRoutes\PluboRoutesProcessor::init();
+		\PluboRoutes\RoutesProcessor::init();
 
 		$plugin_i18n = new Languages();
 
