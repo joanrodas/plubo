@@ -32,7 +32,7 @@ If you intend to use GitHub for your project, your best option is to create a ne
 
 ### 2. With composer
 
-```php
+```bash
 composer create-project joanrodas/plubo <PROJECT_NAME>
 ```
 
@@ -45,7 +45,7 @@ composer create-project joanrodas/plubo <PROJECT_NAME>
 
 If you need to use React in your project, Plubo can prepare a simple structure for you :smiley:
 
-```php
+```bash
 php plubo add react <APP_NAME>
 ```
 
