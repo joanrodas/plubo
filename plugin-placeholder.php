@@ -3,7 +3,7 @@
  * The plugin bootstrap file
  *
  * @wordpress-plugin
- * Plugin Name:       PLUBO
+ * Plugin Name:       PluginPlaceholder
  * Plugin URI:        https://sirvelia.com/
  * Description:       A WordPress plugin made with PLUBO.
  * Version:           1.0.0

@@ -28,6 +28,8 @@ There are 2 options to start using Plubo:
 
 If you intend to use GitHub for your project, your best option is to create a new repo using this one as a template, just clicking the ***Use this template*** button.
 
+When the new repo is ready, you can just clone it, run ``composer install`` and start programming.
+
 > When using Plubo as a template, a pipeline will be executed right after the repo creation, modifiyng the filenames and classes to match your new project name.<br><br> The pipeline files will be autoremoved.
 
 ### 2. With composer
