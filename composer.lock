@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc5234c20c887c3cc3eabe3626b846a0",
+    "content-hash": "7bbae37c56b9a88698bdd8543bf4a0a3",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -839,16 +839,16 @@
         },
         {
             "name": "joanrodas/plubo-routes",
-            "version": "v0.5.0",
+            "version": "v0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joanrodas/plubo-routes.git",
-                "reference": "a59423430fe35c9ef469f9bcd7915b5e67def106"
+                "reference": "62e96109f8e05e73171c37b510e5ac62bfb4f884"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joanrodas/plubo-routes/zipball/a59423430fe35c9ef469f9bcd7915b5e67def106",
-                "reference": "a59423430fe35c9ef469f9bcd7915b5e67def106",
+                "url": "https://api.github.com/repos/joanrodas/plubo-routes/zipball/62e96109f8e05e73171c37b510e5ac62bfb4f884",
+                "reference": "62e96109f8e05e73171c37b510e5ac62bfb4f884",
                 "shasum": ""
             },
             "require": {
@@ -883,7 +883,7 @@
             ],
             "support": {
                 "issues": "https://github.com/joanrodas/plubo-routes/issues",
-                "source": "https://github.com/joanrodas/plubo-routes/tree/v0.5.0"
+                "source": "https://github.com/joanrodas/plubo-routes/tree/v0.5.1"
             },
             "funding": [
                 {
@@ -891,7 +891,7 @@
                     "type": "ko_fi"
                 }
             ],
-            "time": "2022-04-15T13:13:52+00:00"
+            "time": "2022-04-20T11:28:22+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -1644,5 +1644,5 @@
         "php": ">=7.4"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
