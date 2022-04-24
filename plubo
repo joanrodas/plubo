@@ -98,8 +98,8 @@ Alpine.start();
     case 'reactjs':
       echo "Adding React app...\r\n";
       if(!$path) $path = uniqid('react-', false);
-      mkdir("./react/apps/$path", 0777, true);
-      mkdir("./react/apps/$path/src", 0777, true);
+      mkdir("./React/apps/$path", 0777, true);
+      mkdir("./React/apps/$path/src", 0777, true);
       ob_start();?>
 const path = require( 'path' );
 
@@ -124,7 +124,7 @@ module.exports = {
 	},
 };
 <?php $webpack_contents = ob_get_clean();
-      file_put_contents("./react/apps/$path/webpack.config.js", $webpack_contents);
+      file_put_contents("./React/apps/$path/webpack.config.js", $webpack_contents);
 
       ob_start();?>
 {
@@ -171,7 +171,7 @@ module.exports = {
   }
 }
       <?php $package_contents = ob_get_clean();
-      file_put_contents("./react/apps/$path/package.json", $package_contents);
+      file_put_contents("./React/apps/$path/package.json", $package_contents);
       ob_start();?>
 import domReady from '@wordpress/dom-ready';
 import { render } from '@wordpress/element';
@@ -183,7 +183,7 @@ domReady( function() {
 	render( <App />, document.getElementById( 'react-<?= $path ?>' ) );
 } );
       <?php $index_contents = ob_get_clean();
-      file_put_contents("./react/apps/$path/src/index.js", $index_contents);
+      file_put_contents("./React/apps/$path/src/index.js", $index_contents);
       ob_start();?>
 function App() {
   return ('IT WORKS!');
@@ -191,12 +191,12 @@ function App() {
 
 export default App;
 <?php $app_content = ob_get_clean();
-      file_put_contents("./react/apps/$path/src/App.js", $app_content);
-      file_put_contents("./react/apps/$path/src/styles.scss", '');
+      file_put_contents("./React/apps/$path/src/App.js", $app_content);
+      file_put_contents("./React/apps/$path/src/styles.scss", '');
 
-      $config = file_get_contents('./react/apps.php');
+      $config = file_get_contents('./React/apps.php');
       $config .= '$apps[]=' . "'$path';\r\n";
-      file_put_contents('./react/apps.php', $config);
+      file_put_contents('./React/apps.php', $config);
       echo "\e[0;32mReact app $path created (•̀ᴗ•́)و ̑\e[0m\n\r\r\n";
       break;
 
