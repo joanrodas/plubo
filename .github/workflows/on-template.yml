@@ -24,7 +24,7 @@ jobs:
         run: node ./on-template.js
 
       - name: Commit
-        uses: actions-x/commit@v5
+        uses: actions-x/commit@v6
         with:
           name: 'Replace template variables'
           force: true
