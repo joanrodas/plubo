@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4489a376097ef6efd4feb526c15296b6",
+    "content-hash": "c9cd0b6c48b1e651564fc0a04c2aa59f",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -895,16 +895,16 @@
         },
         {
             "name": "joanrodas/plubo-routes",
-            "version": "v0.5.1",
+            "version": "v0.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joanrodas/plubo-routes.git",
-                "reference": "62e96109f8e05e73171c37b510e5ac62bfb4f884"
+                "reference": "cfc1a315202e5b6c28244a8d6233f746a7f60112"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joanrodas/plubo-routes/zipball/62e96109f8e05e73171c37b510e5ac62bfb4f884",
-                "reference": "62e96109f8e05e73171c37b510e5ac62bfb4f884",
+                "url": "https://api.github.com/repos/joanrodas/plubo-routes/zipball/cfc1a315202e5b6c28244a8d6233f746a7f60112",
+                "reference": "cfc1a315202e5b6c28244a8d6233f746a7f60112",
                 "shasum": ""
             },
             "require": {
@@ -939,7 +939,7 @@
             ],
             "support": {
                 "issues": "https://github.com/joanrodas/plubo-routes/issues",
-                "source": "https://github.com/joanrodas/plubo-routes/tree/v0.5.1"
+                "source": "https://github.com/joanrodas/plubo-routes/tree/v0.5.2"
             },
             "funding": [
                 {
@@ -947,7 +947,7 @@
                     "type": "ko_fi"
                 }
             ],
-            "time": "2022-04-20T11:28:22+00:00"
+            "time": "2022-05-04T21:11:44+00:00"
         },
         {
             "name": "nesbot/carbon",
