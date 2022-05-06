@@ -11,9 +11,18 @@ class PostActions {
 		$this->plugin_version = $plugin_version;
 		$this->add_post_actions();
 	}
+    
+    private function add_post_non_logged_in_action($action, $function) {
+		add_action( "admin_post_nopriv_{$action}", array($this, $function) );
+	}
+    
+    private function add_post_logged_in_action($action, $function) {
+		add_action( "admin_post_{$action}", array($this, $function) );
+	}
 
 	private function add_post_action($action, $function) {
-		add_action( "admin_post_{$action}", array($this, $function) );
+		$this->add_post_non_logged_in_action($action, $function);
+		$this->add_post_logged_in_action($action, $function);
 	}
 
 	private function add_post_actions() {
