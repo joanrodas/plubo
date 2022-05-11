@@ -37,9 +37,9 @@
     "@roots/bud-babel": "5.8.0",
     "@roots/bud-eslint": "5.8.0",
     "@roots/bud-imagemin": "5.8.0",
-    "@roots/bud-postcss": "5.7.7",
-    "@roots/bud-sass": "5.7.7",
-    "@roots/bud-tailwindcss": "5.7.7",
-    "@roots/bud-typescript": "5.7.7"
+    "@roots/bud-postcss": "5.8.0",
+    "@roots/bud-sass": "5.8.0",
+    "@roots/bud-tailwindcss": "5.8.0",
+    "@roots/bud-typescript": "5.8.0"
   }
 }
