@@ -1062,10 +1062,10 @@
     css-minimizer-webpack-plugin "3.4.1"
     tslib "^2.3.1"
 
-"@roots/bud-babel@5.7.7":
-  version "5.7.7"
-  resolved "https://registry.yarnpkg.com/@roots/bud-babel/-/bud-babel-5.7.7.tgz#a50d51bac0fb0325884300f6404aa94943015e85"
-  integrity sha512-H9RPYVNNKeCZROSY0Z2VBXyS4C+G8W3nrdpTo1mmT1pdVMc+oXcJnMvYBMzHtTRrP54Uu+muwwxXr5qPBGbqyA==
+"@roots/bud-babel@5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@roots/bud-babel/-/bud-babel-5.8.0.tgz#d4eaf52a60c080a275d3b41156c4ef3bba0ba7b0"
+  integrity sha512-MUrC6DC0VBJ/m4qhbMpMWR2xUpPBQuJY69yN8K7+RhcYHBxhL+AzkhTVikQlb9oe2pPKZZ2WbSz9PcikUqO4dg==
   dependencies:
     "@babel/core" "^7.16.0"
     "@babel/plugin-proposal-class-properties" "^7.16.0"
@@ -1073,8 +1073,10 @@
     "@babel/plugin-syntax-dynamic-import" "^7.8.3"
     "@babel/plugin-transform-runtime" "^7.16.4"
     "@babel/preset-env" "^7.16.4"
+    "@roots/bud-framework" "5.8.0"
+    "@roots/bud-support" "5.8.0"
     babel-loader "^8.2.3"
-    tslib "^2.3.1"
+    tslib "2.3.1"
 
 "@roots/bud-build@5.7.7":
   version "5.7.7"
@@ -1142,6 +1144,15 @@
     "@roots/container" "5.7.7"
     tslib "^2.3.1"
 
+"@roots/bud-framework@5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@roots/bud-framework/-/bud-framework-5.8.0.tgz#cd8b6d4f4014396f545a44d45439fe6bb77d4fbc"
+  integrity sha512-VBBpzpu31TYwmtAkNeHQhtqFKEcM9h/FO2PrDJUc3zN9blbzDTQAAxGHGiQSm7krD0ZCgvLkN4CIdwZbCSkcQA==
+  dependencies:
+    "@roots/bud-support" "5.8.0"
+    "@roots/container" "5.8.0"
+    tslib "2.3.1"
+
 "@roots/bud-hooks@5.7.7":
   version "5.7.7"
   resolved "https://registry.yarnpkg.com/@roots/bud-hooks/-/bud-hooks-5.7.7.tgz#ff5c6d38ee5a6c970fcc0f2f1fc8e3eed5d04fe4"
@@ -1208,6 +1219,11 @@
   resolved "https://registry.yarnpkg.com/@roots/bud-support/-/bud-support-5.7.7.tgz#9ec8275e41719cd33b83bab2f1e64c64ed88b8e0"
   integrity sha512-5c7KHDYQhlVfuXE/5f/nq8p7s5MNkV+nE7ftdHg9lpsEDXmf9fBmaiANYi5tTvyzno6VnB87S3njYoYFLXwV9Q==
 
+"@roots/bud-support@5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@roots/bud-support/-/bud-support-5.8.0.tgz#1e50647c572f42da611992ccd17fb78b77d07ae1"
+  integrity sha512-7MaTbENUhB9zF6uOe2PDmlgCTI93CzYNzG4Pkmmb/A7wzN6LegEte6LkkczufxK8Aq/IBbwgnRKdzudVWhBQ7Q==
+
 "@roots/bud-tailwindcss@5.7.7":
   version "5.7.7"
   resolved "https://registry.yarnpkg.com/@roots/bud-tailwindcss/-/bud-tailwindcss-5.7.7.tgz#66ea8b4af13bb5053f3fd399db15c4ff3dafe9b2"
@@ -1269,6 +1285,14 @@
   integrity sha512-ItD1YFkW9pLZRYzY/DDf7L6TnYNzLHE9kz6G7TwUszWdefgebpFG/YKeEobdLzIVkrnIzy8T0bQE4Aj5+eRQmw==
   dependencies:
     tslib "^2.3.1"
+
+"@roots/container@5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@roots/container/-/container-5.8.0.tgz#4690324f631fd0379985103f67c5b0f20f354750"
+  integrity sha512-nORuqUNIgbEoDE5jChO11d0qqoHF845c/OwQmjgyqHD1DN97G85n61hisAjws6+JFmWencqk7BfOa2LzSPbgJQ==
+  dependencies:
+    helpful-decorators "2.1.0"
+    tslib "2.3.1"
 
 "@roots/dependencies@5.7.7":
   version "5.7.7"
@@ -3331,7 +3355,7 @@ he@^1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-helpful-decorators@^2.1.0:
+helpful-decorators@2.1.0, helpful-decorators@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/helpful-decorators/-/helpful-decorators-2.1.0.tgz#3be11ed4600b856dc117336c8a2d8f2b60401052"
   integrity sha512-RiJEDqSD5c7zmNbx0EgcOvHMOu793Q5M51Q8lS+EHtBmxVE89s95ScMg0bLmLqMl2mA+JEU6WfXkyGLcdYb0wg==
