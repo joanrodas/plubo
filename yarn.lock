@@ -1172,15 +1172,15 @@
   resolved "https://registry.yarnpkg.com/@roots/bud-hooks/-/bud-hooks-5.8.0.tgz#3e249e10ac3d249bae2346039adb8e8281d5bad3"
   integrity sha512-+WGveuNABoRu0mL7JM+DoC4L/j7jwMGIQtIJEr2KkUqib6YX2JD7bJ7yjeUhkWnMtMJ4F9EgdckzGv6+JTEVNQ==
 
-"@roots/bud-imagemin@5.7.7":
-  version "5.7.7"
-  resolved "https://registry.yarnpkg.com/@roots/bud-imagemin/-/bud-imagemin-5.7.7.tgz#bc398a8675b9d4dfb3d9eb073f6dfaee535b1b47"
-  integrity sha512-lZD1pajlWCqmGYppd2ZR6qjS8rE19dHqlFDUTlFesbGPnbChOUPUxEWz+an/w09IwwaYOACowZn0Z+9jE3lGfg==
+"@roots/bud-imagemin@5.8.0":
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@roots/bud-imagemin/-/bud-imagemin-5.8.0.tgz#6a5e76c9458f8a41ef733fa12903d635a5c9b0c5"
+  integrity sha512-STSz2HWmfCBCOPkKGB98hH6TFcoNmc9rt4N5B5equEUpZqll9im/7meAfH9FpULWXkFMf/nVYrAjLHgXRAkLhg==
   dependencies:
-    "@squoosh/lib" "^0.4.0"
-    helpful-decorators "^2.1.0"
-    image-minimizer-webpack-plugin "^3.0.0"
-    tslib "^2.3.1"
+    "@roots/bud-framework" "5.8.0"
+    "@squoosh/lib" "0.4.0"
+    image-minimizer-webpack-plugin "^3.2.3"
+    tslib "2.3.1"
 
 "@roots/bud-postcss@5.7.7":
   version "5.7.7"
@@ -1306,7 +1306,7 @@
     helpful-decorators "2.1.0"
     tslib "2.3.1"
 
-"@squoosh/lib@^0.4.0":
+"@squoosh/lib@0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@squoosh/lib/-/lib-0.4.0.tgz#31d18cb082c69e404589e2e281414d10f91e1668"
   integrity sha512-O1LyugWLZjMI4JZeZMA5vzfhfPjfMZXH5/HmVkRagP8B70wH3uoR7tjxfGNdSavey357MwL8YJDxbGwBBdHp7Q==
@@ -3214,7 +3214,7 @@ he@^1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-helpful-decorators@2.1.0, helpful-decorators@^2.1.0:
+helpful-decorators@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/helpful-decorators/-/helpful-decorators-2.1.0.tgz#3be11ed4600b856dc117336c8a2d8f2b60401052"
   integrity sha512-RiJEDqSD5c7zmNbx0EgcOvHMOu793Q5M51Q8lS+EHtBmxVE89s95ScMg0bLmLqMl2mA+JEU6WfXkyGLcdYb0wg==
@@ -3330,7 +3330,7 @@ ignore@^5.1.8, ignore@^5.1.9, ignore@^5.2.0:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.0.tgz#6d3bac8fa7fe0d45d9f9be7bac2fc279577e345a"
   integrity sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==
 
-image-minimizer-webpack-plugin@^3.0.0:
+image-minimizer-webpack-plugin@^3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/image-minimizer-webpack-plugin/-/image-minimizer-webpack-plugin-3.2.3.tgz#69b3486b38b5355f79ec576fad3f4f42144ca887"
   integrity sha512-a8mG+lTvIGLFnlU4BpDqbw2tr0IC+R2T57Lx+xGNCR5R6WccZ/gmL8P3y8ic0bOYL1azmh2L6+PptccdjIYqqw==
