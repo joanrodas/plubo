@@ -33,7 +33,7 @@
     "translate:js": "wp i18n make-json ./languages --pretty-print"
   },
   "devDependencies": {
-    "@roots/bud": "5.8.0",
+    "@roots/bud": "5.8.7",
     "@roots/bud-babel": "5.8.0",
     "@roots/bud-eslint": "5.8.0",
     "@roots/bud-imagemin": "5.8.0",
