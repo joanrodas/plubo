@@ -6,5 +6,8 @@ module.exports = {
     },
   },
   plugins: [],
-  prefix: 'pb'
+  prefix: 'pb-',
+  corePlugins: {
+    preflight: false,
+  }
 };
