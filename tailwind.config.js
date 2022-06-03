@@ -6,5 +6,5 @@ module.exports = {
     },
   },
   plugins: [],
-  prefix: 'pb'
+  prefix: 'pb-'
 };

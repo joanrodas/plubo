@@ -7,7 +7,6 @@ const composerFile = require('./composer.json')
 
 const TEMPLATE_GITHUB_REPOSITORY = 'joanrodas/plubo'
 const { GITHUB_REPOSITORY } = process.env
-console.log('NEW REPO: ' + GITHUB_REPOSITORY);
 
 if (GITHUB_REPOSITORY === TEMPLATE_GITHUB_REPOSITORY) {
   // eslint-disable-next-line no-console
