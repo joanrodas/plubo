@@ -10,7 +10,7 @@ class Roles {
 	public function update_roles($roles)
 	{
 		// $roles[] = pb_role('test', 'Rol test')->extend('subscriber');
-		$roles[] = pb_role('subscriber')->rename('Patata');
+		// $roles[] = pb_role('subscriber')->rename('Patata');
 		return $roles;
 	}
 }
