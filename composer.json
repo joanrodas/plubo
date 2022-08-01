@@ -27,6 +27,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
+            "rm -rf on-template.js",
             "chmod +x plubo.sh && ./plubo.sh",
             "chmod +x plubo && php -f plubo init"
         ],
