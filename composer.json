@@ -22,11 +22,12 @@
         "php": ">=7.4",
         "jenssegers/blade": "1.4.0",
         "htmlburger/carbon-fields": "3.3.4",
-        "joanrodas/plubo-routes": "0.5.2",
+        "joanrodas/plubo-routes": "0.5.4",
         "joanrodas/plubo-roles": "0.1.2"
     },
     "scripts": {
         "post-create-project-cmd": [
+            "rm -rf on-template.js",
             "chmod +x plubo.sh && ./plubo.sh",
             "chmod +x plubo && php -f plubo init"
         ],
