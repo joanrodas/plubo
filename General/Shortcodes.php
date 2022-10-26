@@ -24,7 +24,7 @@ class Shortcodes {
 	}
 
 	public function example_function($atts, $content = "") {
-		return $this->blade->template('test');
+		//return $this->blade->template('test');
 	}
 
 }
