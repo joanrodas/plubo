@@ -195,7 +195,7 @@ export default App;
       file_put_contents("./React/apps/$path/src/styles.scss", '');
 
       $config = file_get_contents('./React/apps.php');
-      $config .= '$apps[]=' . "'$path';\r\n";
+      $config .= '$react_apps[]=' . "'$path';\r\n";
       file_put_contents('./React/apps.php', $config);
       echo "\e[0;32mReact app $path created (•̀ᴗ•́)و ̑\e[0m\n\r\r\n";
       break;
@@ -349,7 +349,7 @@ export default {
         file_put_contents("./Vue/apps/$path/src/App.vue", $app_content);
         file_put_contents("./Vue/apps/$path/src/styles.scss", '');
         $config = file_get_contents('./Vue/apps.php');
-        $config .= '$apps[]=' . "'$path';\r\n";
+        $config .= '$vue_apps[]=' . "'$path';\r\n";
         file_put_contents('./Vue/apps.php', $config);
         echo "\e[0;32mVue added ;)\e[0m\n\r\n\r";
         break;
