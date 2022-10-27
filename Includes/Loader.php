@@ -14,6 +14,7 @@ use PluginPlaceholder\General\Shortcodes;
 use PluginPlaceholder\General\Taxonomies;
 
 use PluginPlaceholder\React\ReactLoader;
+use PluginPlaceholder\Vue\VueLoader;
 
 class Loader {
 
@@ -33,6 +34,7 @@ class Loader {
 		$plugin_i18n = new Languages();
 
 		$react = new ReactLoader( $this->plugin_name, $this->plugin_version );
+		$vue = new VueLoader( $this->plugin_name, $this->plugin_version );
 
 		$admin_menus = new AdminMenus($this->plugin_name, $this->plugin_version);
 	    $ajax_actions = new AjaxActions($this->plugin_name, $this->plugin_version);

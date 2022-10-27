@@ -9,15 +9,15 @@ class ReactLoader {
   public function __construct( $plugin_name, $plugin_version ) {
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
-    require_once 'apps.php';
-    $this->load_react();
+	    require_once 'apps.php';
+	    $this->load_react();
 	}
 
 	public function load_react() {
 
     add_action('wp_enqueue_scripts', function () {
-      global $apps;
-      foreach ($apps as $script_handle) {
+      global $react_apps;
+      foreach ($react_apps as $script_handle) {
         $script_path       = 'apps/'.$script_handle.'/build/index.js';
 		$style_path       = 'apps/'.$script_handle.'/build/index.css';
       	$script_asset_path = PLUGIN_PLACEHOLDER_PATH . 'React/apps/' . $script_handle.'/build/index.asset.php';
@@ -42,8 +42,8 @@ class ReactLoader {
     });
 
     add_action( 'init', function() {
-      global $apps;
-      foreach ($apps as $script_handle) {
+      global $react_apps;
+      foreach ($react_apps as $script_handle) {
         add_shortcode( $script_handle, function($atts, $content, $script_handle) {
 		  wp_enqueue_script( $script_handle . '-script' );
   		  wp_enqueue_style( $script_handle . '-style' );
