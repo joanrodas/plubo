@@ -17,29 +17,28 @@
       "url": "https://www.gnu.org/licenses/gpl-3.0"
     }
   ],
-  "browserslist": [
-    "last 2 versions",
-    "android 4",
-    "opera 12"
-  ],
   "engines": {
     "node": ">=16.0.0"
   },
   "scripts": {
-    "dev": "bud dev",
-    "build": "bud build",
-    "translate": "npm run translate:pot && npm run translate:js",
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "translate": "yarn translate:pot && yarn translate:update",
     "translate:pot": "wp i18n make-pot . ./languages/plugin-placeholder.pot --ignore-domain --include=\"react,resources\"",
     "translate:js": "wp i18n make-json ./languages --pretty-print"
   },
   "devDependencies": {
-    "@roots/bud": "5.8.7",
-    "@roots/bud-babel": "5.8.7",
-    "@roots/bud-eslint": "5.8.7",
-    "@roots/bud-imagemin": "5.8.7",
-    "@roots/bud-postcss": "5.8.7",
-    "@roots/bud-sass": "5.8.7",
-    "@roots/bud-tailwindcss": "5.8.7",
-    "@roots/bud-typescript": "5.8.7"
+    "@wordpress/scripts": "latest",
+    "css-loader": "6.7.1",
+    "mini-css-extract-plugin": "2.6.1",
+    "postcss": "8.4.18",
+    "postcss-loader": "7.0.1",
+    "postcss-preset-env": "7.8.2",
+    "sass": "1.55.0",
+    "sass-loader": "13.1.0",
+    "ts-loader": "latest",
+    "typescript": "latest",
+    "webpack": "4.44.2",
+    "webpack-fix-style-only-entries": "0.6.1"
   }
 }
