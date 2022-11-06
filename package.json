@@ -38,7 +38,7 @@
     "@roots/bud-eslint": "5.8.7",
     "@roots/bud-imagemin": "5.8.7",
     "@roots/bud-postcss": "5.8.7",
-    "@roots/bud-sass": "5.8.7",
+    "@roots/bud-sass": "6.5.3",
     "@roots/bud-tailwindcss": "5.8.7",
     "@roots/bud-typescript": "5.8.7"
   }
