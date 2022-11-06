@@ -1,3 +1,3 @@
 <?php
-global $apps;
-$apps = array();
+global $react_apps;
+$react_apps = array();

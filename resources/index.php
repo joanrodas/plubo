@@ -1,3 +1,1 @@
-<?php
-
-// this file is deliberately blank
+<?php // Silence will fall

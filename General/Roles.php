@@ -1,8 +1,10 @@
 <?php
+
 namespace PluginPlaceholder\General;
 
-class Roles {
-  	public function __construct()
+class Roles
+{
+	public function __construct()
 	{
 		add_filter('plubo/roles', array($this, 'update_roles'));
 	}
