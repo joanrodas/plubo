@@ -1,38 +1,43 @@
 {
-    "name": "joanrodas/plubo",
-    "type": "template",
-    "description": "A Simple and fast WP Plugin Boilerplate.",
-    "keywords": ["plugin", "wordpress", "boilerplate", "wp"],
-    "homepage": "https://github.com/joanrodas/plubo",
-    "license": "GPL-3.0+",
-    "authors": [
-        {
-            "name": "Joan Rodas Cusidó",
-            "email": "joan@sirvelia.com",
-            "homepage": "https://sirvelia.com",
-            "role": "Developer"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "PluginPlaceholder\\": ""
-        }
-    },
-    "require": {
-        "php": ">=7.4",
-        "jenssegers/blade": "1.4.0",
-        "htmlburger/carbon-fields": "3.3.4",
-        "joanrodas/plubo-routes": "0.5.4",
-        "joanrodas/plubo-roles": "0.1.2"
-    },
-    "scripts": {
-        "post-create-project-cmd": [
-            "rm -rf on-template.js",
-            "chmod +x plubo.sh && ./plubo.sh",
-            "chmod +x plubo && php -f plubo init"
-        ],
-        "zip": [
-            "PLUGIN_DIR=${PWD##*/} && cd .. && zip -r $PLUGIN_DIR/$PLUGIN_DIR.zip $PLUGIN_DIR -x $PLUGIN_DIR/plubo $PLUGIN_DIR/plubo.sh $PLUGIN_DIR/package.json $PLUGIN_DIR/package-lock.json $PLUGIN_DIR/composer.json $PLUGIN_DIR/composer.lock $PLUGIN_DIR/tailwind.config.js $PLUGIN_DIR/yarn.lock $PLUGIN_DIR/.git/\\* $PLUGIN_DIR/.gitignore $PLUGIN_DIR/.eslintrc.js $PLUGIN_DIR/.stylelintrc.js $PLUGIN_DIR/.editorconfig $PLUGIN_DIR/node_modules/\\*"
-        ]
-    }
+	"name": "joanrodas/plubo",
+	"type": "template",
+	"description": "A Simple and fast WP Plugin Boilerplate.",
+	"keywords": [
+		"plugin",
+		"wordpress",
+		"boilerplate",
+		"wp"
+	],
+	"homepage": "https://github.com/joanrodas/plubo",
+	"license": "GPL-3.0+",
+	"authors": [
+		{
+			"name": "Joan Rodas Cusidó",
+			"email": "joan@sirvelia.com",
+			"homepage": "https://sirvelia.com",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"PluginPlaceholder\\": ""
+		}
+	},
+	"require": {
+		"php": ">=7.4",
+		"jenssegers/blade": "1.4.0",
+		"htmlburger/carbon-fields": "3.3.4",
+		"joanrodas/plubo-routes": "0.5.4",
+		"joanrodas/plubo-roles": "0.1.2"
+	},
+	"scripts": {
+		"post-create-project-cmd": [
+			"rm -rf on-template.js",
+			"chmod +x plubo.sh && ./plubo.sh",
+			"chmod +x plubo && php -f plubo init"
+		],
+		"zip": [
+			"PLUGIN_DIR=${PWD##*/} && cd .. && zip -r $PLUGIN_DIR/$PLUGIN_DIR.zip $PLUGIN_DIR -x $PLUGIN_DIR/plubo $PLUGIN_DIR/plubo.sh $PLUGIN_DIR/package.json $PLUGIN_DIR/package-lock.json $PLUGIN_DIR/composer.json $PLUGIN_DIR/composer.lock $PLUGIN_DIR/tailwind.config.js $PLUGIN_DIR/yarn.lock $PLUGIN_DIR/.git/\\* $PLUGIN_DIR/.gitignore $PLUGIN_DIR/.eslintrc.js $PLUGIN_DIR/.stylelintrc.js $PLUGIN_DIR/.editorconfig $PLUGIN_DIR/node_modules/\\*"
+		]
+	}
 }

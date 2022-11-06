@@ -1,11 +1,11 @@
 {
-  "compilerOptions": {
-      "outDir": "./dist/",
-      "jsx": "react-jsx",
-      "module": "ESNext",
-      "target": "ES2015",
-      "strict": true,
-      "allowSyntheticDefaultImports": true,
-      "moduleResolution": "node"
-  }
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "jsx": "react-jsx",
+        "module": "ESNext",
+        "target": "ES2015",
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node"
+    }
 }

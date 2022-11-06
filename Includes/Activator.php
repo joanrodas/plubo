@@ -1,10 +1,10 @@
 <?php
 namespace PluginPlaceholder\Includes;
 
-class Activator {
+class Activator
+{
 
 	public static function activate() {
 
 	}
-
 }
