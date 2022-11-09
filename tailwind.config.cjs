@@ -1,5 +1,5 @@
 module.exports = {
-	content: ['./resources/**/*.{php,vue,js}', './General/**/*.php', './Admin/**/*.php'],
+	content: ['./resources/**/*.{php,vue,js}', './Functionality/**/*.php', './Components/**/*.php'],
 	theme: {
 		extend: {
 			colors: {},

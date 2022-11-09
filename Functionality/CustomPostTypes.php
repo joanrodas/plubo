@@ -1,6 +1,8 @@
 <?php
 
-namespace PluginPlaceholder\General;
+namespace PluginPlaceholder\Functionality;
+
+use \PluginPlaceholder\Components\Book;
 
 class CustomPostTypes
 {
@@ -13,7 +15,8 @@ class CustomPostTypes
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
 
-		add_action('init', array($this, 'register_post_types'));
+		// add_action('init', array($this, 'register_post_types'));
+		add_action('init', [Book::class, 'create_post_type']);
 	}
 
 	public function register_post_types()

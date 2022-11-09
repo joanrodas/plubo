@@ -1,6 +1,6 @@
 <?php
 
-namespace PluginPlaceholder\General;
+namespace PluginPlaceholder\Functionality;
 
 use PluboRoutes\Endpoint\GetEndpoint;
 use PluboRoutes\Endpoint\PostEndpoint;
