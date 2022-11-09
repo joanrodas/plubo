@@ -38,7 +38,7 @@
 		"sass-loader": "13.1.0",
 		"ts-loader": "latest",
 		"typescript": "latest",
-		"webpack": "4.44.2",
+		"webpack": "5.75.0",
 		"webpack-fix-style-only-entries": "0.6.1"
 	}
 }
