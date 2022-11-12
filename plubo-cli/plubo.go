@@ -2,13 +2,14 @@ package main
 
 import (
 	"embed"
-	"fmt"
-	"os"
-	"strings"
-
 	"encoding/json"
+	"fmt"
 	"github.com/bitfield/script"
 	"github.com/fatih/color"
+	"io/ioutil"
+	"os"
+	"path/filepath"
+	"strings"
 )
 
 //go:embed functionalities/*.php
@@ -176,6 +177,51 @@ func namespace_file(path, file_contents string) (new_text string) {
 }
 
 func namespace_project(path string) {
+	to_replace, _ := script.Exec("basename " + path).Exec("tr -d '\n'").String()
+	to_replace_mayus, _ := script.Exec("basename " + path).Exec("tr -d '\n'").Exec("awk 'BEGIN{FS=\"\";RS=\"-\";ORS=\"\"} {$0=toupper($0)} 1'").String()
+	to_replace_pascal, _ := script.Exec("basename " + path).Exec("tr -d '\n'").Exec("awk 'BEGIN{FS=\"\";RS=\"-\";ORS=\"\"} {$0=toupper(substr($0,1,1)) substr($0,2)} 1'").String()
+	os.Rename("./plugin-placeholder.php", "./"+to_replace+".php")
+
+	err := filepath.Walk(path, func(path string, fi os.FileInfo, err error) error {
+
+		if err != nil {
+			return err
+		}
+
+		if !!fi.IsDir() {
+			return nil
+		}
+
+		matched, err := filepath.Match("*.php", fi.Name())
+
+		if err != nil {
+			panic(err)
+			return err
+		}
+
+		if matched {
+			read, err := ioutil.ReadFile(path)
+			if err != nil {
+				panic(err)
+			}
+
+			newContents := strings.Replace(string(read), "plugin-placeholder", to_replace, -1)
+			newContents = strings.Replace(newContents, "PLUGIN_PLACEHOLDER", to_replace_mayus, -1)
+			newContents = strings.Replace(newContents, "PluginPlaceholder", to_replace_pascal, -1)
+
+			err = ioutil.WriteFile(path, []byte(newContents), 0)
+			if err != nil {
+				panic(err)
+			}
+
+		}
+
+		return nil
+	})
+	if err != nil {
+		panic(err)
+	}
+	script.Exec("composer install")
 	return
 }
 
@@ -190,9 +236,9 @@ func cleanup_files() {
 }
 
 func init_template() {
-	//current_repo := os.Getenv("GITHUB_REPOSITORY")
-	current_repo := "test/plubo"
+	current_repo := os.Getenv("GITHUB_REPOSITORY")
 	official_repo := "joanrodas/plubo"
+	exPath, _ := script.Exec("pwd").Exec("tr -d '\n'").String()
 
 	if current_repo == official_repo {
 		fmt.Println("Not using template")
@@ -203,6 +249,8 @@ func init_template() {
 		fmt.Println("Unknown Github Repo")
 		return
 	}
+
+	namespace_project(exPath)
 
 	//COMPOSER.JSON
 	composer_name := strings.ToLower(current_repo)
@@ -223,6 +271,5 @@ func init_template() {
 	package_data, _ := json.MarshalIndent(package_json, "", "\t")
 	script.Echo(string(package_data)).WriteFile("package.json")
 
-	// namespace_project(current_repo)
-	// cleanup_files()
+	cleanup_files()
 }
