@@ -1,5 +1,5 @@
 <?php
-namespace PluginPlaceholder\General;
+namespace PluginPlaceholder\Functionality;
 
 class Taxonomies
 {

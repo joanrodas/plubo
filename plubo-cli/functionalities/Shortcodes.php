@@ -1,6 +1,6 @@
 <?php
 
-namespace PluginPlaceholder\General;
+namespace PluginPlaceholder\Functionality;
 
 use PluginPlaceholder\Includes\BladeLoader;
 
@@ -19,6 +19,9 @@ class Shortcodes
 		$this->blade = BladeLoader::getInstance();
 
 		add_action('init', array($this, 'add_shortcodes'));
+		add_filter('do_shortcode_tag', function ($output, $tag, $attr) {
+			return "<span style='display: none;' class='plubo-shortcode' data-tag='$tag'></span>" . $output;
+		}, 22, 3);
 	}
 
 	public function add_shortcodes()

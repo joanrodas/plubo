@@ -1,6 +1,6 @@
 <?php
 
-namespace PluginPlaceholder\Admin;
+namespace PluginPlaceholder\Functionality;
 
 class PostActions
 {
