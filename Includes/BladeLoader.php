@@ -32,7 +32,7 @@ class BladeLoader
 		$this->blade->directive($name, $handler);
 	}
 
-	public function template($name, $args = array())
+	public function template($name, $args = [])
 	{
 		return $this->blade->render($name, $args);
 	}
