@@ -21,7 +21,7 @@ jobs:
           go-version: ^1.19
 
       - name: Replace namespaces if using as template
-        run: go install github.com/joanrodas/plubo-cli && plubo-cli init_template
+        run: go install github.com/joanrodas/plubo-cli@latest && plubo-cli init_template
 
       - name: Commit
         uses: actions-x/commit@v6
