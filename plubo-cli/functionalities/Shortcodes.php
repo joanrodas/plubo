@@ -18,7 +18,7 @@ class Shortcodes
 		$this->plugin_version = $plugin_version;
 		$this->blade = BladeLoader::getInstance();
 
-		add_action('init', array($this, 'add_shortcodes'));
+		add_action('init', [$this, 'add_shortcodes']);
 		add_filter('do_shortcode_tag', function ($output, $tag, $attr) {
 			return "<span style='display: none;' class='plubo-shortcode' data-tag='$tag'></span>" . $output;
 		}, 22, 3);
@@ -26,7 +26,7 @@ class Shortcodes
 
 	public function add_shortcodes()
 	{
-		//add_shortcode( 'test', array($this, 'example_function') );
+		//add_shortcode( 'test', [$this, 'example_function'] );
 		return;
 	}
 

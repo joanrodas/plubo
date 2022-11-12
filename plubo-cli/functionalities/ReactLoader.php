@@ -1,6 +1,6 @@
 <?php
 
-namespace PluginPlaceholder\React;
+namespace PluginPlaceholder\Functionality;
 
 class ReactLoader
 {
@@ -12,7 +12,7 @@ class ReactLoader
 	{
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
-		require_once 'apps.php';
+		require_once PLUGIN_PLACEHOLDER_PATH . 'React/apps.php';
 		$this->load_react();
 	}
 
@@ -27,10 +27,10 @@ class ReactLoader
 				$script_asset_path = PLUGIN_PLACEHOLDER_PATH . 'React/apps/' . $script_handle . '/build/index.asset.php';
 				$script_asset      = file_exists($script_asset_path)
 					? require $script_asset_path
-					: array(
-						'dependencies' => array(),
+					: [
+						'dependencies' => [],
 						'version'      => $this->plugin_version,
-					);
+					];
 				$script_url = plugins_url($script_path, __FILE__);
 				$style_url = plugins_url($style_path, __FILE__);
 
@@ -40,9 +40,9 @@ class ReactLoader
 				wp_localize_script(
 					$script_handle . '-script',
 					'PLUGIN_PLACEHOLDER_ARGS',
-					array(
+					[
 						'api' => esc_url_raw(rest_url('plugin_placeholder/v1'))
-					)
+					]
 				);
 			}
 		});
@@ -53,7 +53,7 @@ class ReactLoader
 				add_shortcode($script_handle, function ($atts, $content, $script_handle) {
 					wp_enqueue_script($script_handle . '-script');
 					wp_enqueue_style($script_handle . '-style');
-					wp_set_script_translations($script_handle . '-script', 'simple-online-printing', PLUGIN_PLACEHOLDER_PATH . 'languages');
+					wp_set_script_translations($script_handle . '-script', 'plugin-placeholder', PLUGIN_PLACEHOLDER_PATH . 'languages');
 					return "<div id='react-$script_handle'></div>";
 				});
 			}

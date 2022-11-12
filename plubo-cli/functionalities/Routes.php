@@ -16,7 +16,15 @@ class Routes
 	{
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
-		add_filter('plubo/routes', array($this, 'add_routes'));
+
+		add_action('after_setup_theme', [$this, 'load_plubo_routes']);
+		add_filter('plubo/routes', [$this, 'add_routes']);
+		
+	}
+
+	public function load_plubo_routes($routes)
+	{
+		\PluboRoutes\RoutesProcessor::init();
 	}
 
 	public function add_routes($routes)

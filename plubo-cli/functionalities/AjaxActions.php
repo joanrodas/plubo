@@ -17,12 +17,12 @@ class AjaxActions
 
 	private function add_ajax_non_logged_in_action($action, $function)
 	{
-		add_action("wp_ajax_nopriv_{$action}", array($this, $function));
+		add_action("wp_ajax_nopriv_{$action}", [$this, $function]);
 	}
 
 	private function add_ajax_logged_in_action($action, $function)
 	{
-		add_action("wp_ajax_{$action}", array($this, $function));
+		add_action("wp_ajax_{$action}", [$this, $function]);
 	}
 
 	private function add_ajax_general_action($action, $function)

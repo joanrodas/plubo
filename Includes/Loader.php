@@ -1,9 +1,6 @@
 <?php
 namespace PluginPlaceholder\Includes;
 
-// use PluginPlaceholder\React\ReactLoader;
-// use PluginPlaceholder\Vue\VueLoader;
-
 class Loader
 {
 	protected $plugin_name;
@@ -14,17 +11,13 @@ class Loader
 		$this->plugin_version = defined('PLUGIN_PLACEHOLDER_VERSION') ? PLUGIN_PLACEHOLDER_VERSION : '1.0.0';
 		$this->plugin_name = 'plugin-placeholder';
 		$this->load_dependencies();
+
+		add_action('plugins_loaded', [$this, 'load_plugin_textdomain']);
+		add_action('wp_enqueue_scripts', [$this, 'load_assets'], 100);
 	}
 
 	private function load_dependencies()
 	{
-		\PluboRoutes\RoutesProcessor::init();
-		// \PluboRoles\RolesProcessor::init();
-
-		$plugin_i18n = new Languages();
-		// $react = new ReactLoader($this->plugin_name, $this->plugin_version);
-		// $vue = new VueLoader($this->plugin_name, $this->plugin_version);
-
 		foreach (glob(PLUGIN_PLACEHOLDER_PATH . 'Functionality/*.php') as $filename) {
 			$class_name = '\\PluginPlaceholder\Functionality\\'. basename($filename, '.php');
 			if (class_exists($class_name)) {
@@ -37,15 +30,21 @@ class Loader
 				}
 			}
 		}
+	}
 
-		add_action('wp_enqueue_scripts', function () {
-			wp_enqueue_style('plugin-placeholder/app.css', PLUGIN_PLACEHOLDER_URL . 'dist/app.css', false, null);
-			wp_enqueue_script('plugin-placeholder/app.js', PLUGIN_PLACEHOLDER_URL . 'dist/app.js', [], null, true);
+	public function load_plugin_textdomain()
+	{
+		load_plugin_textdomain('plugin-placeholder', false, PLUGIN_PLACEHOLDER_BASENAME . '/languages/');
+	}
 
-			wp_localize_script('plugin-placeholder/app.js', 'plugin_placeholder_ajax', array(
-				'ajaxurl'   => admin_url('admin-ajax.php'),
-				'nonce'     => wp_create_nonce('ajax-nonce'),
-			));
-		}, 100);
+	public function load_assets()
+	{
+		wp_enqueue_style('plugin-placeholder/app.css', PLUGIN_PLACEHOLDER_URL . 'dist/app.css', false, null);
+		wp_enqueue_script('plugin-placeholder/app.js', PLUGIN_PLACEHOLDER_URL . 'dist/app.js', [], null, true);
+
+		wp_localize_script('plugin-placeholder/app.js', 'plugin_placeholder_ajax', [
+			'ajaxurl'   => admin_url('admin-ajax.php'),
+			'nonce'     => wp_create_nonce('ajax-nonce'),
+		]);
 	}
 }

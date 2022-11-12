@@ -17,7 +17,7 @@ class ApiEndpoints
 	{
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
-		add_filter('plubo/endpoints', array($this, 'add_endpoints'));
+		add_filter('plubo/endpoints', [$this, 'add_endpoints']);
 	}
 
 	public function add_endpoints($endpoints)

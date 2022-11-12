@@ -24,13 +24,16 @@ func main() {
 
 	if len(args) > 1 {
 		switch args[0] {
-		case "create":
+		case "create", "functionality", "func":
 			create(args[1])
-		case "component":
+		case "component", "comp":
 			component(args[1])
 		case "utils":
 			utils(args[1])
+		case "lib", "module":
+			lib(args[1])
 		}
+
 	} else if len(args) > 0 {
 		switch args[0] {
 		case "init_template":
@@ -90,6 +93,7 @@ func create(functionality string) {
 		} else {
 			file.WriteString(string(new_text))
 			fmt.Println("CUSTOM FIELDS CLASS CREATED")
+			script.Exec("composer require htmlburger/carbon-fields")
 		}
 		file.Close()
 	case "cpt", "custom-post-types", "custom-post-type", "post-type", "post-types":
@@ -123,6 +127,19 @@ func create(functionality string) {
 		} else {
 			file.WriteString(string(new_text))
 			fmt.Println("ROUTES CLASS CREATED")
+			script.Exec("composer require joanrodas/plubo-routes")
+		}
+		file.Close()
+	case "roles", "role":
+		original_text, _ := content.ReadFile("functionalities/Roles.php")
+		file, err := os.Create(exPath + "/Functionality/Roles.php")
+		new_text = namespace_file(exPath, string(original_text))
+		if err != nil {
+			fmt.Println(err)
+		} else {
+			file.WriteString(string(new_text))
+			fmt.Println("ROLES CLASS CREATED")
+			script.Exec("composer require joanrodas/plubo-roles")
 		}
 		file.Close()
 	case "shortcode", "shortcodes":
@@ -153,6 +170,24 @@ func create(functionality string) {
 }
 
 func component(name string) {
+	exPath, _ := script.Exec("pwd").Exec("tr -d '\n'").String()
+	to_replace, _ := script.Echo(name).Exec("tr -d '\n'").Exec("awk 'BEGIN{FS=\"\";RS=\"-\";ORS=\"\"} {$0=toupper(substr($0,1,1)) substr($0,2)} 1'").String()
+
+	original_text, _ := content.ReadFile("components/BaseComponent.php")
+	file, err := os.Create(exPath + "/Components/" + to_replace + ".php")
+	new_text := namespace_file(exPath, string(original_text))
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		file.WriteString(string(new_text))
+		fmt.Println("COMPONENT " + to_replace + " CREATED")
+	}
+	file.Close()
+}
+
+func utils(name string) {
+	// exPath, _ := script.Exec("pwd").Exec("tr -d '\n'").String()
+
 	switch name {
 	case "api", "endpoint", "endpoints", "api-endpoint", "api-endpoints":
 		fmt.Println("CREATE API")
@@ -161,10 +196,50 @@ func component(name string) {
 	}
 }
 
-func utils(name string) {
+func lib(name string) {
+	exPath, _ := script.Exec("pwd").Exec("tr -d '\n'").String()
+
 	switch name {
-	case "api", "endpoint", "endpoints", "api-endpoint", "api-endpoints":
-		fmt.Println("CREATE API")
+	case "alpine":
+		script.Exec("yarn add alpinejs")
+		original_text, _ := content.ReadFile("alpine/alpine.ts")
+		file, err := os.Create(exPath + "/resources/scripts/components/alpine.ts")
+		if err != nil {
+			fmt.Println(err)
+		} else {
+			file.WriteString(string(original_text))
+			fmt.Println("ADD ALPINE")
+		}
+		file.Close()
+	case "tailwind":
+		script.Exec("yarn add alpinejs")
+		original_text, _ := content.ReadFile("tailwind/_tailwind.scss")
+		file, err := os.Create(exPath + "/resources/styles/components/_tailwind.scss")
+		if err != nil {
+			fmt.Println(err)
+		} else {
+			file.WriteString(string(original_text))
+			fmt.Println("ADD TAILWIND IMPORT")
+		}
+		file.Close()
+
+		original_text_config, _ := content.ReadFile("tailwind/tailwind.config.cjs")
+		file_config, err_config := os.Create(exPath + "/tailwind.config.cjs")
+		if err_config != nil {
+			fmt.Println(err_config)
+		} else {
+			file_config.WriteString(string(original_text_config))
+			fmt.Println("ADD TAILWIND CONFIG")
+		}
+		file.Close()
+	case "env":
+		script.Exec("composer require vlucas/phpdotenv")
+		script.Exec("touch .env")
+		fmt.Println("ADD ENV")
+	case "react":
+		fmt.Println("ADD REACT")
+	case "vue":
+		fmt.Println("ADD VUE")
 	default:
 		color.Cyan("\nTo the rational mind, nothing is inexplicable; only unexplained.\n\n")
 	}
@@ -181,6 +256,7 @@ func namespace_project(path string) {
 	to_replace_mayus, _ := script.Exec("basename " + path).Exec("tr -d '\n'").Exec("awk 'BEGIN{FS=\"\";RS=\"-\";ORS=\"\"} {$0=toupper($0)} 1'").String()
 	to_replace_pascal, _ := script.Exec("basename " + path).Exec("tr -d '\n'").Exec("awk 'BEGIN{FS=\"\";RS=\"-\";ORS=\"\"} {$0=toupper(substr($0,1,1)) substr($0,2)} 1'").String()
 	os.Rename("./plugin-placeholder.php", "./"+to_replace+".php")
+	os.Rename("./languages/plugin-placeholder.pot", "./languages/"+to_replace+".pot")
 
 	err := filepath.Walk(path, func(path string, fi os.FileInfo, err error) error {
 

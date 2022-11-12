@@ -15,8 +15,8 @@ class CustomPostTypes
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
 
-		// add_action('init', array($this, 'register_post_types'));
-		add_action('init', [Book::class, 'create_post_type']);
+		add_action('init', [$this, 'register_post_types']);
+		// add_action('init', [Book::class, 'create_post_type']);
 	}
 
 	public function register_post_types()

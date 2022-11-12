@@ -12,7 +12,7 @@ class Taxonomies
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
 
-		add_action('init', array($this, 'register_taxonomies'));
+		add_action('init', [$this, 'register_taxonomies']);
 	}
 
 	public function register_taxonomies()

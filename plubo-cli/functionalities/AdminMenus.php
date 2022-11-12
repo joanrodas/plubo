@@ -18,7 +18,7 @@ class AdminMenus
 		$this->plugin_version = $plugin_version;
 		$this->blade = BladeLoader::getInstance();
 
-		add_action('admin_menu', array($this, 'add_admin_menus'));
+		add_action('admin_menu', [$this, 'add_admin_menus']);
 	}
 
 	public function add_admin_menus()

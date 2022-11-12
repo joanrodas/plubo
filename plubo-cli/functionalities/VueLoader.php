@@ -1,6 +1,6 @@
 <?php
 
-namespace PluginPlaceholder\Vue;
+namespace PluginPlaceholder\Functionality;
 
 class VueLoader
 {
@@ -12,7 +12,7 @@ class VueLoader
 	{
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
-		require_once 'apps.php';
+		require_once PLUGIN_PLACEHOLDER_PATH . 'Vue/apps.php';
 		$this->load_vue();
 	}
 
@@ -33,9 +33,9 @@ class VueLoader
 				wp_localize_script(
 					$script_handle . '-script',
 					'PLUGIN_PLACEHOLDER_VUE_ARGS',
-					array(
+					[
 						'api' => esc_url_raw(rest_url('plugin_placeholder/v1'))
-					)
+					]
 				);
 			}
 		});
@@ -46,7 +46,7 @@ class VueLoader
 				add_shortcode($script_handle, function ($atts, $content, $script_handle) {
 					wp_enqueue_script($script_handle . '-script');
 					wp_enqueue_style($script_handle . '-style');
-					wp_set_script_translations($script_handle . '-script', 'simple-online-printing', PLUGIN_PLACEHOLDER_PATH . 'languages');
+					wp_set_script_translations($script_handle . '-script', 'plugin-placeholder', PLUGIN_PLACEHOLDER_PATH . 'languages');
 					return "<div id='vue-$script_handle'></div>";
 				});
 			}
