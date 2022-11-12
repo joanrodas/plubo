@@ -3,7 +3,7 @@ module plubo
 go 1.19
 
 require (
-	github.com/bitfield/script v0.20.2
+	github.com/bitfield/script v0.21.1
 	github.com/fatih/color v1.13.0
 )
 
