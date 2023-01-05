@@ -5,18 +5,15 @@ const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const postcssPresetEnv = require('postcss-preset-env');
 
 module.exports = {
-	...defaults,
 	entry: {
-		scripts: path.resolve(process.cwd(), 'resources/scripts', 'app.ts')
+		app: [path.resolve(process.cwd(), 'resources/scripts', 'app.ts'), path.resolve(process.cwd(), 'resources/styles', 'app.scss')]
 	},
 	output: {
 		filename: '[name].js',
 		path: path.resolve(process.cwd(), 'dist'),
 	},
 	module: {
-		...defaults.module,
 		rules: [
-			...defaults.module.rules,
 			{
 				test: /\.tsx?$/,
 				use: [
@@ -67,5 +64,10 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.ts', '.tsx', ...(defaults.resolve ? defaults.resolve.extensions || ['.js', '.jsx'] : [])]
-	}
+	},
+	plugins: [
+		new MiniCSSExtractPlugin({
+			filename: '[name].css'
+		})
+	]
 };
