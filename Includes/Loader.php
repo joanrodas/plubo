@@ -13,7 +13,6 @@ class Loader
 		$this->load_dependencies();
 
 		add_action('plugins_loaded', [$this, 'load_plugin_textdomain']);
-		add_action('wp_enqueue_scripts', [$this, 'load_assets'], 100);
 	}
 
 	private function load_dependencies()
@@ -35,16 +34,5 @@ class Loader
 	public function load_plugin_textdomain()
 	{
 		load_plugin_textdomain('plugin-placeholder', false, PLUGIN_PLACEHOLDER_BASENAME . '/languages/');
-	}
-
-	public function load_assets()
-	{
-		wp_enqueue_style('plugin-placeholder/app.css', PLUGIN_PLACEHOLDER_URL . 'dist/app.css', false, null);
-		wp_enqueue_script('plugin-placeholder/app.js', PLUGIN_PLACEHOLDER_URL . 'dist/app.js', [], null, true);
-
-		wp_localize_script('plugin-placeholder/app.js', 'plugin_placeholder_ajax', [
-			'ajaxurl'   => admin_url('admin-ajax.php'),
-			'nonce'     => wp_create_nonce('ajax-nonce'),
-		]);
 	}
 }

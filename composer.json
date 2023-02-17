@@ -23,7 +23,8 @@
 			"PluginPlaceholder\\": ""
 		},
 		"files": [
-			"Utils/dev.php"
+			"Utils/dev.php",
+			"Utils/functions.php"
 		]
 	},
 	"require": {
