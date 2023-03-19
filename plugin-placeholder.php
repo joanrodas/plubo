@@ -8,7 +8,7 @@
  * Plugin URI:        https://sirvelia.com/
  * Description:       A WordPress plugin made with PLUBO.
  * Version:           1.0.0
- * Author:            Joan Rodas - Sirvelia
+ * Author:            Sirvelia
  * Author URI:        https://sirvelia.com/
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
@@ -28,13 +28,9 @@ define('PLUGIN_PLACEHOLDER_URL', plugin_dir_url(__FILE__));
 
 require_once PLUGIN_PLACEHOLDER_PATH . 'vendor/autoload.php';
 
-register_activation_hook(__FILE__, function () {
-	PluginPlaceholder\Includes\Activator::activate();
-});
-
-register_deactivation_hook(__FILE__, function () {
-	PluginPlaceholder\Includes\Deactivator::deactivate();
-});
+register_activation_hook(__FILE__, [PluginPlaceholder\Includes\Lyfecycle::class, 'activate']);
+register_deactivation_hook(__FILE__, [PluginPlaceholder\Includes\Lyfecycle::class, 'deactivate']);
+register_uninstall_hook(__FILE__, [PluginPlaceholder\Includes\Lyfecycle::class, 'uninstall']);
 
 //LOAD ALL PLUGIN FILES
 $loader = new PluginPlaceholder\Includes\Loader();
