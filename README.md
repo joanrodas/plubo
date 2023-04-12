@@ -38,20 +38,26 @@ When the new repo is ready, you can just clone it, run ``composer install`` and 
 composer create-project joanrodas/plubo <PROJECT_NAME>
 ```
 
-> After creating the project, use the command php plubo add to add Alpine.js, React and/or environment variables to your project.
+> After creating the project, use the plubo-cli to create new classes, libraries and utilities to your project.
 
 <br/>
 
+## Add new classes with plubo-cli
 
-## Create a React app as a WordPress shortcode automagically! :rocket::rocket::rocket:
-
-If you need to use React in your project, Plubo can prepare a simple structure for you :smiley:
+Install the CLI: https://github.com/joanrodas/plubo-cli/
 
 ```bash
-php plubo add react <APP_NAME>
+plubo-cli add cpt
+plubo-cli add fields
+plubo-cli add routes
+plubo-cli add admin-menus
+plubo-cli add ajax
+plubo-cli add endpoints
+plubo-cli add post-actions
+plubo-cli add roles
+plubo-cli add shortcodes
+plubo-cli add taxonomies
 ```
-
-> **Note:** If you don't enter an app name, a random one will be assigned.
 
 <br/>
 

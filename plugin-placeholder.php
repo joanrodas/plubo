@@ -16,21 +16,25 @@
  * Domain Path:       /languages
  */
 
-// Direct access, abort.
 if (!defined('WPINC')) {
 	die('YOU SHALL NOT PASS!');
 }
 
+// PLUGIN CONSTANTS
 define('PLUGIN_PLACEHOLDER_VERSION', '1.0.0');
 define('PLUGIN_PLACEHOLDER_PATH', plugin_dir_path(__FILE__));
 define('PLUGIN_PLACEHOLDER_BASENAME', plugin_basename(__FILE__));
 define('PLUGIN_PLACEHOLDER_URL', plugin_dir_url(__FILE__));
 
-require_once PLUGIN_PLACEHOLDER_PATH . 'vendor/autoload.php';
+// AUTOLOAD
+if ( file_exists(PLUGIN_PLACEHOLDER_PATH . 'vendor/autoload.php') ) {
+	require_once PLUGIN_PLACEHOLDER_PATH . 'vendor/autoload.php';
+}
 
+// LYFECYCLE
 register_activation_hook(__FILE__, [PluginPlaceholder\Includes\Lyfecycle::class, 'activate']);
 register_deactivation_hook(__FILE__, [PluginPlaceholder\Includes\Lyfecycle::class, 'deactivate']);
 register_uninstall_hook(__FILE__, [PluginPlaceholder\Includes\Lyfecycle::class, 'uninstall']);
 
-//LOAD ALL PLUGIN FILES
+// LOAD ALL FILES
 $loader = new PluginPlaceholder\Includes\Loader();
