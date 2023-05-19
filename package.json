@@ -30,7 +30,7 @@
 	"devDependencies": {
 		"@wordpress/scripts": "latest",
 		"css-loader": "6.7.3",
-		"mini-css-extract-plugin": "2.7.5",
+		"mini-css-extract-plugin": "2.7.6",
 		"postcss": "8.4.21",
 		"postcss-loader": "7.2.4",
 		"postcss-preset-env": "8.3.1",
