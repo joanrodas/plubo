@@ -33,6 +33,6 @@ class Loader
 
 	public function load_plugin_textdomain()
 	{
-		load_plugin_textdomain('plugin-placeholder', false, PLUGIN_PLACEHOLDER_BASENAME . '/languages/');
+		load_plugin_textdomain('plugin-placeholder', false, dirname(PLUGIN_PLACEHOLDER_BASENAME) . '/languages/');
 	}
 }
