@@ -32,7 +32,8 @@
 		"jenssegers/blade": "1.4.0"
 	},
 	"require-dev": {
-        "squizlabs/php_codesniffer": "3.*"
+        "squizlabs/php_codesniffer": "3.*",
+		"phpunit/phpunit": "^9"
     },
 	"scripts": {
 		"post-create-project-cmd": [
