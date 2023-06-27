@@ -17,7 +17,7 @@
  */
 
 if (!defined('WPINC')) {
-	die('YOU SHALL NOT PASS!');
+    die('YOU SHALL NOT PASS!');
 }
 
 // PLUGIN CONSTANTS
@@ -27,8 +27,8 @@ define('PLUGIN_PLACEHOLDER_BASENAME', plugin_basename(__FILE__));
 define('PLUGIN_PLACEHOLDER_URL', plugin_dir_url(__FILE__));
 
 // AUTOLOAD
-if ( file_exists(PLUGIN_PLACEHOLDER_PATH . 'vendor/autoload.php') ) {
-	require_once PLUGIN_PLACEHOLDER_PATH . 'vendor/autoload.php';
+if (file_exists(PLUGIN_PLACEHOLDER_PATH . 'vendor/autoload.php')) {
+    require_once PLUGIN_PLACEHOLDER_PATH . 'vendor/autoload.php';
 }
 
 // LYFECYCLE
