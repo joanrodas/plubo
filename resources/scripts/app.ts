@@ -1,9 +1,6 @@
-import Router from './utils/Router';
-import common from './routes/common';
-
-const routes = {
-  common, // All pages
-};
+import watermark from './utils/watermark';
 
 // Load Events
-window.addEventListener('DOMContentLoaded', () => new Router(routes).loadEvents());
+window.addEventListener('DOMContentLoaded', () => {
+  watermark()
+});

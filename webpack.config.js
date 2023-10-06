@@ -1,7 +1,6 @@
 const path = require('path');
 const defaults = require('@wordpress/scripts/config/webpack.config.js');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
-const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const postcssPresetEnv = require('postcss-preset-env');
 
 module.exports = {

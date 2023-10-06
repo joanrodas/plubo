@@ -29,17 +29,16 @@
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "latest",
-		"css-loader": "6.7.3",
-		"mini-css-extract-plugin": "2.7.5",
-		"postcss": "8.4.21",
-		"postcss-loader": "7.2.4",
-		"postcss-preset-env": "8.3.1",
-		"sass": "1.62.0",
-		"sass-loader": "13.2.2",
+		"css-loader": "6.8.1",
+		"mini-css-extract-plugin": "2.7.6",
+		"postcss": "8.4.31",
+		"postcss-loader": "7.3.3",
+		"postcss-preset-env": "9.1.4",
+		"sass": "1.69.0",
+		"sass-loader": "13.3.2",
 		"ts-loader": "latest",
 		"typescript": "latest",
-		"webpack": "^5.78.0",
-		"webpack-cli": "^5.0.1",
-		"webpack-fix-style-only-entries": "0.6.1"
+		"webpack": "^5.88.2",
+		"webpack-cli": "^5.1.4"
 	}
 }

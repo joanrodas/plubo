@@ -80,13 +80,13 @@ class AssetsLoader
     {
         foreach ($this->styles as $style) {
             if (is_null($style['condition']) || call_user_func($style['condition'], $handler)) {
-                wp_enqueue_style("plugin-placeholder/{$style['name']}", $style['path'], $style['dependencies'], PLUGIN_PLACEHOLDER_VERSION);
+                wp_register_style("plugin-placeholder/{$style['name']}", $style['path'], $style['dependencies'], PLUGIN_PLACEHOLDER_VERSION);
             }
         }
 
         foreach ($this->scripts as $script) {
             if (is_null($script['condition']) || call_user_func($script['condition'], $handler)) {
-                wp_enqueue_script("plugin-placeholder/{$script['name']}", $script['path'], $script['dependencies'], PLUGIN_PLACEHOLDER_VERSION);
+                wp_register_script("plugin-placeholder/{$script['name']}", $script['path'], $script['dependencies'], PLUGIN_PLACEHOLDER_VERSION);
 
                 if ($script['localize']) {
                     wp_localize_script("plugin-placeholder/{$script['name']}", $script['localize']['name'], $script['localize']['args']);
@@ -99,13 +99,13 @@ class AssetsLoader
     {
         foreach ($this->admin_styles as $style) {
             if (is_null($style['condition']) || call_user_func($style['condition'], $handler)) {
-                wp_enqueue_style("plugin-placeholder/{$style['name']}", $style['path'], $style['dependencies'], PLUGIN_PLACEHOLDER_VERSION);
+                wp_register_style("plugin-placeholder/{$style['name']}", $style['path'], $style['dependencies'], PLUGIN_PLACEHOLDER_VERSION);
             }
         }
 
         foreach ($this->admin_scripts as $script) {
             if (is_null($script['condition']) || call_user_func($script['condition'], $handler)) {
-                wp_enqueue_script("plugin-placeholder/{$script['name']}", $script['path'], $script['dependencies'], PLUGIN_PLACEHOLDER_VERSION);
+                wp_register_script("plugin-placeholder/{$script['name']}", $script['path'], $script['dependencies'], PLUGIN_PLACEHOLDER_VERSION);
 
                 if ($script['localize']) {
                     wp_localize_script("plugin-placeholder/{$script['name']}", $script['localize']['name'], $script['localize']['args']);
