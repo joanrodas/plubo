@@ -34,7 +34,7 @@
 		"postcss": "8.4.31",
 		"postcss-loader": "7.3.3",
 		"postcss-preset-env": "9.1.4",
-		"sass": "1.69.0",
+		"sass": "1.69.5",
 		"sass-loader": "13.3.2",
 		"ts-loader": "latest",
 		"typescript": "latest",
