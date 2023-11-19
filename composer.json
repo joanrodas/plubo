@@ -23,7 +23,7 @@
 			"PluginPlaceholder\\": ""
 		},
 		"files": [
-			"Utils/dev.php"
+			"Utils/plubo.php"
 		]
 	},
 	"require": {

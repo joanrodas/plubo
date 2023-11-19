@@ -1,14 +1,21 @@
 const path = require('path');
 const defaults = require('@wordpress/scripts/config/webpack.config.js');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const Copy = require('copy-webpack-plugin');
+
 
 module.exports = {
 	entry: {
-		app: [path.resolve(process.cwd(), 'resources/scripts', 'app.ts'), path.resolve(process.cwd(), 'resources/styles', 'app.scss')]
+		app: [
+			path.resolve(process.cwd(), 'resources/scripts', 'app.ts'),
+			path.resolve(process.cwd(), 'resources/styles', 'app.scss')
+		]
 	},
 	output: {
-		filename: '[name].js',
+		filename: 'scripts/[name]-[contenthash].js',
 		path: path.resolve(process.cwd(), 'dist'),
 	},
 	module: {
@@ -58,7 +65,19 @@ module.exports = {
 						}
 					}
 				]
-			}
+			},
+			{
+				test: /\.(png|jpg|gif)$/i,
+				type: 'asset/resource',
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 8192,
+						}
+					},
+				]
+			},
 		]
 	},
 	resolve: {
@@ -66,7 +85,23 @@ module.exports = {
 	},
 	plugins: [
 		new MiniCSSExtractPlugin({
-			filename: '[name].css'
-		})
+			filename: 'styles/[name]-[contenthash].css'
+		}),
+		new WebpackManifestPlugin({ publicPath: '' }),
+		new CleanWebpackPlugin(),
+		new Copy({
+			patterns: [
+				{
+					from: "**/*",
+					context: path.resolve(__dirname, "resources", "images"),
+					to: '[path][name]-[contenthash][ext]',
+					globOptions: {
+						dot: true,
+						ignore: ['**/.gitkeep'],
+					},
+					noErrorOnMissing: true,
+				},
+			]
+		}),
 	]
 };
