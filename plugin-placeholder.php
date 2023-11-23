@@ -25,7 +25,8 @@ define('PLUGIN_PLACEHOLDER_VERSION', '1.0.0');
 define('PLUGIN_PLACEHOLDER_PATH', plugin_dir_path(__FILE__));
 define('PLUGIN_PLACEHOLDER_BASENAME', plugin_basename(__FILE__));
 define('PLUGIN_PLACEHOLDER_URL', plugin_dir_url(__FILE__));
-define('PLUGIN_PLACEHOLDER_ASSETS', PLUGIN_PLACEHOLDER_PATH . '/dist');
+define('PLUGIN_PLACEHOLDER_ASSETS_PATH', PLUGIN_PLACEHOLDER_PATH . 'dist/' );
+define('PLUGIN_PLACEHOLDER_ASSETS_URL', PLUGIN_PLACEHOLDER_URL . 'dist/' );
 
 // AUTOLOAD
 if (file_exists(PLUGIN_PLACEHOLDER_PATH . 'vendor/autoload.php')) {

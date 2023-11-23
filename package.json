@@ -23,7 +23,7 @@
 	"scripts": {
 		"build": "wp-scripts build",
 		"start": "wp-scripts start",
-		"translate": "yarn translate:pot && yarn translate:update",
+		"translate": "yarn translate:pot && yarn translate:js",
 		"translate:pot": "wp i18n make-pot . ./languages/plugin-placeholder.pot --ignore-domain --include=\"react,resources\"",
 		"translate:js": "wp i18n make-json ./languages --pretty-print"
 	},
