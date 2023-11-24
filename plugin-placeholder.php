@@ -1,8 +1,6 @@
 <?php
 
 /**
- * The plugin bootstrap file
- *
  * @wordpress-plugin
  * Plugin Name:       PluginPlaceholder
  * Plugin URI:        https://sirvelia.com/
