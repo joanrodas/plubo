@@ -36,7 +36,7 @@
     },
 	"scripts": {
 		"post-create-project-cmd": [
-			"hash plubo-cli 2>/dev/null || { wget -qO- https://github.com/joanrodas/plubo-cli/releases/download/v0.1.6/plubo-cli_Linux_x86_64.tar.gz | tar -xvz }",
+			"bash plubo-cli 2>/dev/null || { wget -qO- https://github.com/joanrodas/plubo-cli/releases/download/v0.1.6/plubo-cli_Linux_x86_64.tar.gz | tar -xvz }",
 			"chmod +x plubo-cli && ./plubo-cli namespace-project"
 		],
 		"zip": [
