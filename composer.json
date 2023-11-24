@@ -36,16 +36,8 @@
     },
 	"scripts": {
 		"post-create-project-cmd": [
-			"if command -v plubo-cli >/dev/null 2>&1; then",
-			"    echo 'plubo-cli is already installed. Running namespace-project...'",
-			"    plubo-cli namespace-project",
-			"else",
-			"    echo 'Downloading and installing plubo-cli...'",
-			"    wget -qO- https://github.com/joanrodas/plubo-cli/releases/download/v0.1.6/plubo-cli_Linux_x86_64.tar.gz | tar -xvz",
-			"    chmod +x plubo-cli",
-			"    ./plubo-cli namespace-project",
-			"fi"
-		],
+        	"command -v plubo-cli >/dev/null 2>&1 && plubo-cli namespace-project || { echo 'Downloading and installing plubo-cli...'; wget -qO- https://github.com/joanrodas/plubo-cli/releases/download/v0.1.6/plubo-cli_Linux_x86_64.tar.gz | tar -xvz; chmod +x plubo-cli; ./plubo-cli namespace-project; }"
+    	],
 		"zip": [
 			"PLUGIN_DIR=${PWD##*/} && cd .. && zip -r $PLUGIN_DIR/$PLUGIN_DIR.zip $PLUGIN_DIR -x $PLUGIN_DIR/plubo $PLUGIN_DIR/plubo.sh $PLUGIN_DIR/package.json $PLUGIN_DIR/package-lock.json $PLUGIN_DIR/composer.json $PLUGIN_DIR/composer.lock $PLUGIN_DIR/tailwind.config.js $PLUGIN_DIR/yarn.lock $PLUGIN_DIR/.git/\\* $PLUGIN_DIR/.gitignore $PLUGIN_DIR/.eslintrc.js $PLUGIN_DIR/.stylelintrc.js $PLUGIN_DIR/.editorconfig $PLUGIN_DIR/node_modules/\\*"
 		],
