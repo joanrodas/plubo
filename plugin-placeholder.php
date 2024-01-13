@@ -19,6 +19,7 @@ if (!defined('WPINC')) {
 }
 
 // PLUGIN CONSTANTS
+define('PLUGIN_PLACEHOLDER_NAME', 'plugin-placeholder');
 define('PLUGIN_PLACEHOLDER_VERSION', '1.0.0');
 define('PLUGIN_PLACEHOLDER_PATH', plugin_dir_path(__FILE__));
 define('PLUGIN_PLACEHOLDER_BASENAME', plugin_basename(__FILE__));
