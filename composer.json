@@ -28,7 +28,7 @@
 	},
 	"require": {
 		"php": ">=7.4",
-		"jenssegers/blade": "1.4.0"
+		"jenssegers/blade": "2.0.1"
 	},
 	"require-dev": {
         "squizlabs/php_codesniffer": "3.7.2",
