@@ -12,11 +12,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     
-    - name: Set Node.js 16.x
+    - name: Set Node.js 20.x
       uses: actions/setup-node@v4
       with:
-        node-version: 16.x
-    - run: composer install && yarn && yarn build
+        node-version: 20.x
+    - run: composer --no-dev install && yarn && yarn build
     
     - name: WordPress Plugin Deploy
       uses: 10up/action-wordpress-plugin-deploy@master
