@@ -2,7 +2,7 @@
 
 namespace PluginPlaceholder\Includes;
 
-use Jenssegers\Blade\Blade;
+use eftec\bladeone\BladeOne;
 
 class BladeLoader
 {
@@ -11,7 +11,7 @@ class BladeLoader
 
     private function __construct()
     {
-        $this->blade = new Blade(
+        $this->blade = new BladeOne(
             PLUGIN_PLACEHOLDER_PATH . 'resources/views',
             PLUGIN_PLACEHOLDER_PATH . 'resources/cache'
         );
@@ -37,6 +37,6 @@ class BladeLoader
 
     public function template($name, $args = [])
     {
-        return $this->blade->render($name, $args);
+        return $this->blade->run($name, $args);
     }
 }
