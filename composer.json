@@ -32,7 +32,7 @@
 	},
 	"scripts": {
 		"post-create-project-cmd": [
-			"PLUGIN_NAME=$(basename "$PWD"); command -v pb-cli >/dev/null 2>&1 && pb-cli rename \"$PLUGIN_NAME\" || { echo 'Downloading and installing plubo-cli...'; wget -qO- https://github.com/joanrodas/plubo-cli/releases/download/v0.1.6/plubo-cli_Linux_x86_64.tar.gz | tar -xvz; chmod +x plubo-cli; ./plubo-cli namespace-project; }"
+			"sh -c 'PLUGIN_NAME=$(basename \"$PWD\"); command -v pb-cli >/dev/null 2>&1 && pb-cli rename \"$PLUGIN_NAME\" || { echo 'Downloading and installing plubo-cli...'; wget -qO- https://github.com/joanrodas/plubo-cli/releases/download/v0.1.6/plubo-cli_Linux_x86_64.tar.gz | tar -xvz; chmod +x plubo-cli; ./plubo-cli namespace-project; }"
 		]
 	}
 }
