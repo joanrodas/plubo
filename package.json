@@ -32,7 +32,7 @@
 		"clean-webpack-plugin": "^4.0.0",
 		"copy-webpack-plugin": "^11.0.0",
 		"css-loader": "6.8.1",
-		"mini-css-extract-plugin": "2.7.6",
+		"mini-css-extract-plugin": "2.10.0",
 		"postcss": "8.4.31",
 		"postcss-loader": "7.3.3",
 		"postcss-preset-env": "9.3.0",
