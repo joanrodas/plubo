@@ -27,7 +27,6 @@
 		]
 	},
 	"require": {
-		"php": ">=7.4",
-		"eftec/bladeone": "4.18"
+		"php": ">=7.4"
 	}
 }
